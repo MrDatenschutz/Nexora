@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Nexora – Deine Suchmaschine</title>
+
+  <!-- Lunr.js über CDN (Methode 1) -->
+  <script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -76,72 +80,86 @@
   </style>
 </head>
 <body>
+
+  <!-- Logo + Titel -->
   <div class="header">
-    <!-- WICHTIG: Hier GENAU den Dateinamen deines Logos eintragen -->
     <img src="nexora-logo.png" alt="Nexora Logo">
     <h1>Nexora</h1>
   </div>
+
   <p>Die Suchmaschine für deine Inhalte.</p>
 
+  <!-- Suchfeld -->
   <div id="searchBox">
     <input type="text" id="searchInput" placeholder="Gib deinen Suchbegriff ein...">
   </div>
 
+  <!-- Ergebnisse -->
   <div id="results"></div>
 
   <script>
-    const index = [
-      {
-        title: "Startseite",
-        url: "index.html",
-        description: "Die Hauptseite deiner Nexora-Suchmaschine.",
-        keywords: "start nexora suche suchmaschine homepage hallo"
-      },
-      {
-        title: "Über Nexora",
-        url: "ueber-nexora.html",
-        description: "Informationen über die Idee hinter Nexora.",
-        keywords: "über nexora info idee projekt"
-      },
-      {
-        title: "Kontakt",
-        url: "kontakt.html",
-        description: "Kontaktiere den Entwickler von Nexora.",
-        keywords: "kontakt email nachricht support hilfe"
-      }
-    ];
+    // 🔍 Lunr.js Index erstellen
+    const idx = lunr(function () {
+      this.field('title');
+      this.field('content');
+      this.ref('id');
 
+      // Hier fügst du deine Seiten ein
+      this.add({
+        id: 1,
+        title: "Startseite",
+        content: "Willkommen bei Nexora. Dies ist die Startseite deiner Suchmaschine."
+      });
+
+      this.add({
+        id: 2,
+        title: "Über Nexora",
+        content: "Nexora ist eine moderne Suchmaschine, die deine Inhalte durchsucht."
+      });
+
+      this.add({
+        id: 3,
+        title: "Kontakt",
+        content: "Hier kannst du den Entwickler von Nexora kontaktieren."
+      });
+    });
+
+    // 🔍 Suchfeld-Logik
     const input = document.getElementById("searchInput");
     const resultsDiv = document.getElementById("results");
 
     input.addEventListener("input", function () {
-      const query = this.value.trim().toLowerCase();
+      const query = this.value.trim();
       resultsDiv.innerHTML = "";
 
-      if (query === "") {
-        return;
-      }
+      if (query === "") return;
 
-      const results = index.filter(item => {
-        const haystack = (item.title + " " + item.description + " " + item.keywords).toLowerCase();
-        return haystack.includes(query);
-      });
+      const results = idx.search(query);
 
       if (results.length === 0) {
-        resultsDiv.innerHTML = "<p>Keine Treffer für „" + query + "“ gefunden.</p>";
+        resultsDiv.innerHTML = "<p>Keine Treffer gefunden.</p>";
         return;
       }
 
-      results.forEach(item => {
+      results.forEach(result => {
+        const item = indexData[result.ref];
         const div = document.createElement("div");
         div.className = "result-item";
         div.innerHTML = `
           <a href="${item.url}">${item.title}</a>
-          <div class="result-desc">${item.description}</div>
+          <div class="result-desc">${item.content}</div>
         `;
         resultsDiv.appendChild(div);
       });
     });
+
+    // 🔗 Daten für die Ergebnisse (URLs)
+    const indexData = {
+      1: { title: "Startseite", url: "index.html", content: "Willkommen bei Nexora. Dies ist die Startseite deiner Suchmaschine." },
+      2: { title: "Über Nexora", url: "ueber-nexora.html", content: "Nexora ist eine moderne Suchmaschine, die deine Inhalte durchsucht." },
+      3: { title: "Kontakt", url: "kontakt.html", content: "Hier kannst du den Entwickler von Nexora kontaktieren." }
+    };
   </script>
+
 </body>
 </html>
