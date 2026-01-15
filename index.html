@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Nexora – Deine kompetente Suchmaschine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+    p {
+      color: #9ca3af;
+    }
+    #searchBox {
+      margin-top: 30px;
+    }
+    input[type="text"] {
+      width: 60%;
+      max-width: 500px;
+      padding: 10px 14px;
+      font-size: 1rem;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      outline: none;
+      background: #020617;
+      color: #e5e7eb;
+    }
+    input[type="text"]:focus {
+      border-color: #38bdf8;
+    }
+    #results {
+      margin-top: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+    .result-item {
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #020617;
+      margin-bottom: 10px;
+      border: 1px solid #1f2937;
+    }
+    .result-item a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .result-item a:hover {
+      text-decoration: underline;
+    }
+    .result-desc {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nexora</h1>
+  <p>Die Suchmaschine für deine Inhalte.</p>
+
+  <div id="searchBox">
+    <input type="text" id="searchInput" placeholder="Gib deinen Suchbegriff ein...">
+  </div>
+
+  <div id="results"></div>
+
+  <script>
+    // Hier definierst du, was Nexora durchsuchen kann:
+    const index = [
+      {
+        title: "Startseite",
+        url: "index.html",
+        description: "Die Hauptseite deiner Nexora-Suchmaschine.",
+        keywords: "start nexora suche suchmaschine homepage"
+      },
+      {
+        title: "Über Nexora",
+        url: "ueber-nexora.html",
+        description: "Informationen über die Idee hinter Nexora.",
+        keywords: "über nexora info idee projekt"
+      },
+      {
+        title: "Kontakt",
+        url: "kontakt.html",
+        description: "Kontaktiere den Entwickler von Nexora.",
+        keywords: "kontakt email nachricht support hilfe"
+      }
+    ];
+
+    const input = document.getElementById("searchInput");
+    const resultsDiv = document.getElementById("results");
+
+    input.addEventListener("input", function () {
+      const query = this.value.trim().toLowerCase();
+      resultsDiv.innerHTML = "";
+
+      if (query === "") {
+        return;
+      }
+
+      const results = index.filter(item => {
+        const haystack = (item.title + " " + item.description + " " + item.keywords).toLowerCase();
+        return haystack.includes(query);
+      });
+
+      if (results.length === 0) {
+        resultsDiv.innerHTML = "<p>Keine Treffer für „" + query + "“ gefunden.</p>";
+        return;
+      }
+
+      results.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "result-item";
+        div.innerHTML = `
+          <a href="${item.url}">${item.title}</a>
+          <div class="result-desc">${item.description}</div>
+        `;
+        resultsDiv.appendChild(div);
+      });
+    });
+  </script>
+</body>
+</html>
