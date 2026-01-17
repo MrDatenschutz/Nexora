@@ -94,7 +94,9 @@
     <button id="registerBtn" onclick="window.location.href='https://backend-f-r-registrierung.onrender.com'">
       Registrieren
     </button>
-    <button id="loginBtn" onclick="alert('Login-Seite kommt als nächstes 😊');">
+
+    <!-- LOGIN BUTTON IST JETZT FREIGESCHALTET -->
+    <button id="loginBtn" onclick="window.location.href='login.html'">
       Login
     </button>
   </div>
@@ -103,20 +105,8 @@
     <input type="text" id="searchInput" name="q" placeholder="Suchbegriff eingeben..." disabled>
     <br>
     <button id="searchBtn" disabled>Suchen</button>
-    <div id="hint">Bitte zuerst registrieren und einloggen, um die Suche zu nutzen.</div>
+    <div id="hint">Bitte zuerst einloggen, um die Suche zu nutzen.</div>
   </div>
-
-  <script>
-    // Platzhalter – später durch echtes Login/Session ersetzt
-    const isLoggedIn = false; // hier später dynamisch setzen
-
-    if (isLoggedIn) {
-      document.getElementById('searchInput').disabled = false;
-      document.getElementById('searchBtn').disabled = false;
-      document.getElementById('hint').textContent = 'Du bist eingeloggt. Du kannst jetzt suchen.';
-      document.getElementById('hint').style.color = '#00ff88';
-    }
-  </script>
 
 </body>
 </html>
