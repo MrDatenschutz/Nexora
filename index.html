@@ -2,10 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Nexora – Deine Suchmaschine</title>
-
-  <!-- Lunr.js über CDN (Methode 1) -->
-  <script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
+  <title>Nexora – Deine kompetente Suchmaschine</title>
 
   <style>
     body {
@@ -14,7 +11,9 @@
       color: #e5e7eb;
       text-align: center;
       padding: 40px;
+      margin: 0;
     }
+
     .header {
       display: flex;
       align-items: center;
@@ -22,20 +21,25 @@
       gap: 20px;
       margin-bottom: 30px;
     }
+
     .header img {
       height: 80px;
     }
+
     .header h1 {
       font-size: 3rem;
       margin: 0;
       color: #38bdf8;
     }
+
     p {
       color: #9ca3af;
     }
+
     #searchBox {
       margin-top: 30px;
     }
+
     input[type="text"] {
       width: 60%;
       max-width: 500px;
@@ -47,35 +51,9 @@
       background: #020617;
       color: #e5e7eb;
     }
+
     input[type="text"]:focus {
       border-color: #38bdf8;
-    }
-    #results {
-      margin-top: 30px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
-    }
-    .result-item {
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: #020617;
-      margin-bottom: 10px;
-      border: 1px solid #1f2937;
-    }
-    .result-item a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .result-item a:hover {
-      text-decoration: underline;
-    }
-    .result-desc {
-      font-size: 0.9rem;
-      color: #9ca3af;
-      margin-top: 4px;
     }
   </style>
 </head>
@@ -94,71 +72,18 @@
     <input type="text" id="searchInput" placeholder="Gib deinen Suchbegriff ein...">
   </div>
 
-  <!-- Ergebnisse -->
-  <div id="results"></div>
-
   <script>
-    // 🔍 Lunr.js Index erstellen
-    const idx = lunr(function () {
-      this.field('title');
-      this.field('content');
-      this.ref('id');
-
-      // Hier fügst du deine Seiten ein
-      this.add({
-        id: 1,
-        title: "Startseite",
-        content: "Willkommen bei Nexora. Dies ist die Startseite deiner Suchmaschine."
-      });
-
-      this.add({
-        id: 2,
-        title: "Über Nexora",
-        content: "Nexora ist eine moderne Suchmaschine, die deine Inhalte durchsucht."
-      });
-
-      this.add({
-        id: 3,
-        title: "Kontakt",
-        content: "Hier kannst du den Entwickler von Nexora kontaktieren."
-      });
-    });
-
-    // 🔍 Suchfeld-Logik
     const input = document.getElementById("searchInput");
-    const resultsDiv = document.getElementById("results");
 
-    input.addEventListener("input", function () {
-      const query = this.value.trim();
-      resultsDiv.innerHTML = "";
-
-      if (query === "") return;
-
-      const results = idx.search(query);
-
-      if (results.length === 0) {
-        resultsDiv.innerHTML = "<p>Keine Treffer gefunden.</p>";
-        return;
+    // Bei Enter weiterleiten zur Ergebnisseite
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        const q = input.value.trim();
+        if (q !== "") {
+          window.location.href = "results.html?q=" + encodeURIComponent(q);
+        }
       }
-
-      results.forEach(result => {
-        const item = indexData[result.ref];
-        const div = document.createElement("div");
-        div.className = "result-item";
-        div.innerHTML = `
-          <a href="${item.url}">${item.title}</a>
-          <div class="result-desc">${item.content}</div>
-        `;
-        resultsDiv.appendChild(div);
-      });
     });
-
-    // 🔗 Daten für die Ergebnisse (URLs)
-    const indexData = {
-      1: { title: "Startseite", url: "index.html", content: "Willkommen bei Nexora. Dies ist die Startseite deiner Suchmaschine." },
-      2: { title: "Über Nexora", url: "ueber-nexora.html", content: "Nexora ist eine moderne Suchmaschine, die deine Inhalte durchsucht." },
-      3: { title: "Kontakt", url: "kontakt.html", content: "Hier kannst du den Entwickler von Nexora kontaktieren." }
-    };
   </script>
 
 </body>
