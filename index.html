@@ -2,8 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Nexora – Deine kompetente Suchmaschine</title>
-  <script src="lunr.min.js"></script>
+  <title>Nexora – Deine Suchmaschine</title>
 
   <style>
     body {
@@ -102,45 +101,49 @@
   <div id="results"></div>
 
   <script>
-    // Lunr.js Index erstellen
-    const idx = lunr(function () {
-      this.field('title');
-      this.field('content');
-      this.ref('id');
+    const pages = [
+      {
+        title: "Startseite",
+        url: "index.html",
+        content: "Willkommen bei Nexora. Dies ist die Startseite deiner Suchmaschine."
+      },
+      {
+        title: "Über Nexora",
+        url: "ueber-nexora.html",
+        content: "Nexora ist eine moderne Suchmaschine, die deine Inhalte durchsucht."
+      },
+      {
+        title: "Kontakt",
+        url: "kontakt.html",
+        content: "Hier kannst du den Entwickler von Nexora kontaktieren."
+      },
+      {
+        title: "Amazon",
+        url: "index.html",
+        content: "Amazon ist ein Online-Marktplatz. Diese Seite ist ein Testeintrag für die Suche."
+      }
+    ];
 
-      this.add({ id: 1, title: "Startseite", content: "Willkommen bei Nexora. Dies ist die Startseite deiner Suchmaschine." });
-      this.add({ id: 2, title: "Über Nexora", content: "Nexora ist eine moderne Suchmaschine, die deine Inhalte durchsucht." });
-      this.add({ id: 3, title: "Kontakt", content: "Hier kannst du den Entwickler von Nexora kontaktieren." });
-      this.add({ id: 4, title: "Begrüßung", content: "Hi! Schön, dass du Nexora ausprobierst. Hier findest du Hilfe und Infos." });
-    });
-
-    // Daten für die Trefferanzeige
-    const indexData = {
-      1: { title: "Startseite", url: "index.html", content: "Willkommen bei Nexora. Dies ist die Startseite deiner Suchmaschine." },
-      2: { title: "Über Nexora", url: "ueber-nexora.html", content: "Nexora ist eine moderne Suchmaschine, die deine Inhalte durchsucht." },
-      3: { title: "Kontakt", url: "kontakt.html", content: "Hier kannst du den Entwickler von Nexora kontaktieren." },
-      4: { title: "Begrüßung", url: "index.html", content: "Hi! Schön, dass du Nexora ausprobierst. Hier findest du Hilfe und Infos." }
-    };
-
-    // Suchlogik
     const input = document.getElementById("searchInput");
     const resultsDiv = document.getElementById("results");
 
     input.addEventListener("input", function () {
-      const query = this.value.trim();
+      const query = this.value.trim().toLowerCase();
       resultsDiv.innerHTML = "";
 
       if (query === "") return;
 
-      const results = idx.search(query);
+      const results = pages.filter(page =>
+        page.title.toLowerCase().includes(query) ||
+        page.content.toLowerCase().includes(query)
+      );
 
       if (results.length === 0) {
         resultsDiv.innerHTML = "<p>Keine Treffer gefunden.</p>";
         return;
       }
 
-      results.forEach(result => {
-        const item = indexData[result.ref];
+      results.forEach(item => {
         const div = document.createElement("div");
         div.className = "result-item";
         div.innerHTML = `
