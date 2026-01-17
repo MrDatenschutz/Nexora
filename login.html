@@ -49,8 +49,8 @@
 
       fetch("https://backend-f-r-registrierung.onrender.com/login", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
       })
       .then(res => res.text())
       .then(data => {
