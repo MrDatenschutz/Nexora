@@ -3,85 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <title>Nexora – Startseite</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
+      margin: 0;
+      padding: 0;
       background-color: #121212;
       color: #ffffff;
       font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+    header {
+      margin-top: 40px;
       text-align: center;
-      padding: 50px;
     }
     #logo {
       width: 120px;
-      margin-bottom: 20px;
+      display: block;
+      margin: 0 auto 10px auto;
     }
     h1 {
       font-size: 36px;
       color: #00aaff;
+      margin: 0;
     }
-    input[type="text"] {
-      padding: 10px;
-      width: 300px;
-      font-size: 16px;
+    #authButtons {
       margin-top: 20px;
+    }
+    #authButtons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
       border: none;
       border-radius: 5px;
+      cursor: pointer;
     }
-    button {
+    #registerBtn {
+      background-color: #ffaa00;
+      color: #000;
+    }
+    #loginBtn {
+      background-color: #00aaff;
+      color: #fff;
+    }
+    #searchSection {
+      margin-top: 40px;
+      text-align: center;
+    }
+    #searchInput {
+      padding: 10px;
+      width: 320px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+    }
+    #searchBtn {
       padding: 10px 20px;
       font-size: 16px;
       margin-top: 15px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-    }
-    #searchBtn:disabled {
-      background-color: #444;
-      color: #888;
-      cursor: not-allowed;
-    }
-    #searchBtn {
       background-color: #00aaff;
       color: #fff;
     }
-    #registerBtn {
-      background-color: #ffaa00;
-      color: #000;
+    #searchInput:disabled,
+    #searchBtn:disabled {
+      background-color: #333;
+      color: #888;
+      cursor: not-allowed;
     }
-    #status {
-      margin-top: 20px;
-      color: #00ff88;
+    #hint {
+      margin-top: 15px;
+      color: #ff8800;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-  <img id="logo" src="nexora-logo.png" alt="Nexora Logo">
-  <h1>Nexora</h1>
+  <header>
+    <img id="logo" src="nexora-logo.png" alt="Nexora Logo">
+    <h1>Nexora</h1>
+  </header>
 
-  <p>Du musst dich registrieren, um die Suche zu nutzen.</p>
-
-  <button id="registerBtn" onclick="window.location.href='https://backend-f-r-registrierung.onrender.com'">
-    Jetzt registrieren
-  </button>
-
-  <div id="searchSection">
-    <input type="text" id="searchInput" placeholder="Suchbegriff eingeben..." disabled>
-    <br>
-    <button id="searchBtn" disabled>Suchen</button>
+  <div id="authButtons">
+    <button id="registerBtn" onclick="window.location.href='https://backend-f-r-registrierung.onrender.com'">
+      Registrieren
+    </button>
+    <button id="loginBtn" onclick="alert('Login-Seite kommt als nächstes 😊');">
+      Login
+    </button>
   </div>
 
-  <div id="status"></div>
+  <div id="searchSection">
+    <input type="text" id="searchInput" name="q" placeholder="Suchbegriff eingeben..." disabled>
+    <br>
+    <button id="searchBtn" disabled>Suchen</button>
+    <div id="hint">Bitte zuerst registrieren und einloggen, um die Suche zu nutzen.</div>
+  </div>
 
   <script>
-    // Später durch echten Login ersetzen
-    const isRegistered = false; // ← hier Login-Status setzen
+    // Platzhalter – später durch echtes Login/Session ersetzt
+    const isLoggedIn = false; // hier später dynamisch setzen
 
-    if (isRegistered) {
-      document.getElementById("searchInput").disabled = false;
-      document.getElementById("searchBtn").disabled = false;
-      document.getElementById("status").textContent = "Du bist eingeloggt. Suche aktiviert.";
+    if (isLoggedIn) {
+      document.getElementById('searchInput').disabled = false;
+      document.getElementById('searchBtn').disabled = false;
+      document.getElementById('hint').textContent = 'Du bist eingeloggt. Du kannst jetzt suchen.';
+      document.getElementById('hint').style.color = '#00ff88';
     }
   </script>
 
