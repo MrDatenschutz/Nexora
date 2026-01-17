@@ -101,17 +101,21 @@
   <div id="results"></div>
 
   <script>
-    // Deine Seiten, die durchsucht werden sollen
     const pages = [
       {
-        title: "Startseite",
-        url: "index.html",
-        content: "Willkommen bei Nexora. Dies ist die Startseite deiner Suchmaschine."
+        title: "Amazon",
+        url: "https://www.amazon.de",
+        content: "Amazon ist ein Online-Marktplatz für Produkte aller Art."
       },
       {
-        title: "Über Nexora",
-        url: "ueber-nexora.html",
-        content: "Nexora ist eine moderne Suchmaschine, die deine Inhalte durchsucht."
+        title: "Wikipedia",
+        url: "https://de.wikipedia.org",
+        content: "Wikipedia ist ein freies Online-Lexikon mit Millionen von Artikeln."
+      },
+      {
+        title: "GitHub",
+        url: "https://github.com",
+        content: "GitHub ist eine Plattform für Entwickler und Open-Source-Projekte."
       },
       {
         title: "Kontakt",
@@ -119,9 +123,14 @@
         content: "Hier kannst du den Entwickler von Nexora kontaktieren."
       },
       {
-        title: "Amazon",
+        title: "Über Nexora",
+        url: "ueber-nexora.html",
+        content: "Nexora ist eine moderne Suchmaschine für deine eigenen Inhalte."
+      },
+      {
+        title: "Startseite",
         url: "index.html",
-        content: "Amazon ist ein Online-Marktplatz. Diese Seite ist ein Testeintrag für die Suche."
+        content: "Willkommen bei Nexora. Dies ist die Startseite deiner Suchmaschine."
       }
     ];
 
@@ -160,7 +169,7 @@
         const div = document.createElement("div");
         div.className = "result-item";
         div.innerHTML = `
-          <a href="${item.url}">${item.title}</a>
+          <a href="${item.url}" target="_blank">${item.title}</a>
           <div class="result-desc">${item.content}</div>
         `;
         resultsDiv.appendChild(div);
