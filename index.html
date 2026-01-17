@@ -6,48 +6,63 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
+      background-color: #121212;
+      color: #ffffff;
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
       text-align: center;
       padding: 50px;
     }
     #logo {
-      width: 150px;
+      width: 120px;
       margin-bottom: 20px;
     }
     h1 {
-      color: #333;
+      font-size: 36px;
+      color: #00aaff;
     }
     input[type="text"] {
       padding: 10px;
       width: 300px;
       font-size: 16px;
       margin-top: 20px;
+      border: none;
+      border-radius: 5px;
     }
     button {
       padding: 10px 20px;
       font-size: 16px;
-      margin-top: 10px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
     }
     #searchBtn:disabled {
-      background-color: #ccc;
+      background-color: #444;
+      color: #888;
       cursor: not-allowed;
+    }
+    #searchBtn {
+      background-color: #00aaff;
+      color: #fff;
+    }
+    #registerBtn {
+      background-color: #ffaa00;
+      color: #000;
     }
     #status {
       margin-top: 20px;
-      color: green;
+      color: #00ff88;
     }
   </style>
 </head>
 <body>
 
   <img id="logo" src="nexora-logo.png" alt="Nexora Logo">
-  <h1>Willkommen bei Nexora</h1>
+  <h1>Nexora</h1>
 
-  <p>Bitte registriere dich, um die Suche zu nutzen.</p>
+  <p>Du musst dich registrieren, um die Suche zu nutzen.</p>
 
-  <button onclick="window.location.href='https://backend-f-r-registrierung.onrender.com'">
+  <button id="registerBtn" onclick="window.location.href='https://backend-f-r-registrierung.onrender.com'">
     Jetzt registrieren
   </button>
 
@@ -60,8 +75,8 @@
   <div id="status"></div>
 
   <script>
-    // Simulierter Login-Status (später durch echten Login ersetzen)
-    const isRegistered = false; // ← später dynamisch setzen
+    // Später durch echten Login ersetzen
+    const isRegistered = false; // ← hier Login-Status setzen
 
     if (isRegistered) {
       document.getElementById("searchInput").disabled = false;
