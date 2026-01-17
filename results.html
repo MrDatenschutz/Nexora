@@ -80,12 +80,6 @@
       text-decoration: underline;
     }
 
-    .result-url {
-      color: #64748b;
-      font-size: 0.9rem;
-      margin-bottom: 6px;
-    }
-
     .result-desc {
       color: #cbd5e1;
       font-size: 1rem;
@@ -95,26 +89,46 @@
 </head>
 <body>
 
-  <!-- Logo + Titel mittig -->
   <div class="header">
     <img src="nexora-logo.png" alt="Nexora Logo">
     <h1>Nexora</h1>
   </div>
 
-  <!-- Suchfeld -->
   <div class="search-area">
     <input id="searchInput" type="text" placeholder="Suchbegriff eingeben...">
   </div>
 
-  <!-- Ergebnisse -->
   <div id="results"></div>
 
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const query = urlParams.get("q");
+    const pages = [
+      {
+        title: "Startseite",
+        url: "index.html",
+        content: "Willkommen bei Nexora. Dies ist die Startseite deiner Suchmaschine."
+      },
+      {
+        title: "Über Nexora",
+        url: "ueber-nexora.html",
+        content: "Nexora ist eine moderne Suchmaschine, die deine Inhalte durchsucht."
+      },
+      {
+        title: "Kontakt",
+        url: "kontakt.html",
+        content: "Hier kannst du den Entwickler von Nexora kontaktieren."
+      },
+      {
+        title: "Amazon",
+        url: "index.html",
+        content: "Amazon ist ein Online-Marktplatz. Diese Seite ist ein Testeintrag für die Suche."
+      }
+    ];
 
     const input = document.getElementById("searchInput");
     const resultsDiv = document.getElementById("results");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get("q");
 
     if (query) {
       input.value = query;
@@ -128,34 +142,28 @@
     });
 
     function performSearch(q) {
-      resultsDiv.innerHTML = "<p>Suche läuft...</p>";
+      const query = q.trim().toLowerCase();
+      resultsDiv.innerHTML = "";
 
-      fetch(`https://api.langsearch.com/search?q=${encodeURIComponent(q)}`)
-        .then(res => res.json())
-        .then(data => {
-          resultsDiv.innerHTML = "";
+      const results = pages.filter(page =>
+        page.title.toLowerCase().includes(query) ||
+        page.content.toLowerCase().includes(query)
+      );
 
-          if (!data.results || data.results.length === 0) {
-            resultsDiv.innerHTML = "<p>Keine Treffer gefunden.</p>";
-            return;
-          }
+      if (results.length === 0) {
+        resultsDiv.innerHTML = "<p>Keine Treffer gefunden.</p>";
+        return;
+      }
 
-          data.results.forEach(item => {
-            const div = document.createElement("div");
-            div.className = "result-item";
-
-            div.innerHTML = `
-              <div class="result-url">${item.url}</div>
-              <a href="${item.url}" target="_blank">${item.title}</a>
-              <div class="result-desc">${item.description || "Keine Beschreibung verfügbar."}</div>
-            `;
-
-            resultsDiv.appendChild(div);
-          });
-        })
-        .catch(() => {
-          resultsDiv.innerHTML = "<p>Fehler bei der Suche. Bitte später erneut versuchen.</p>";
-        });
+      results.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "result-item";
+        div.innerHTML = `
+          <a href="${item.url}">${item.title}</a>
+          <div class="result-desc">${item.content}</div>
+        `;
+        resultsDiv.appendChild(div);
+      });
     }
   </script>
 
