@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Suchergebnisse – Nexora</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header oben rechts */
+    .topbar {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      background: #0f172a;
+      border-bottom: 1px solid #1f2937;
+      position: sticky;
+      top: 0;
+    }
+
+    .topbar img {
+      height: 40px;
+    }
+
+    .topbar h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      color: #38bdf8;
+    }
+
+    /* Suchfeld */
+    .search-area {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .search-area input {
+      width: 60%;
+      max-width: 500px;
+      padding: 10px 14px;
+      font-size: 1rem;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      outline: none;
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    .search-area input:focus {
+      border-color: #38bdf8;
+    }
+
+    /* Ergebnisse */
+    #results {
+      margin-top: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .result-item {
+      background: #020617;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #1f2937;
+      margin-bottom: 20px;
+    }
+
+    .result-item a {
+      color: #38bdf8;
+      font-size: 1.3rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .result-item a:hover {
+      text-decoration: underline;
+    }
+
+    .result-url {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .result-desc {
+      color: #cbd5e1;
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo oben rechts -->
+  <div class="topbar">
+    <img src="nexora-logo.png" alt="Nexora Logo">
+    <h1>Nexora</h1>
+  </div>
+
+  <!-- Suchfeld -->
+  <div class="search-area">
+    <input id="searchInput" type="text" placeholder="Suchbegriff eingeben...">
+  </div>
+
+  <!-- Ergebnisse -->
+  <div id="results"></div>
+
+  <script>
+    // Suchbegriff aus URL lesen
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get("q");
+
+    const input = document.getElementById("searchInput");
+    const resultsDiv = document.getElementById("results");
+
+    if (query) {
+      input.value = query;
+      performSearch(query);
+    }
+
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        performSearch(input.value);
+      }
+    });
+
+    // LangSearch API
+    function performSearch(q) {
+      resultsDiv.innerHTML = "<p>Suche läuft...</p>";
+
+      fetch(`https://api.langsearch.com/search?q=${encodeURIComponent(q)}`)
+        .then(res => res.json())
+        .then(data => {
+          resultsDiv.innerHTML = "";
+
+          if (!data.results || data.results.length === 0) {
+            resultsDiv.innerHTML = "<p>Keine Treffer gefunden.</p>";
+            return;
+          }
+
+          data.results.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "result-item";
+
+            div.innerHTML = `
+              <div class="result-url">${item.url}</div>
+              <a href="${item.url}" target="_blank">${item.title}</a>
+              <div class="result-desc">${item.description || "Keine Beschreibung verfügbar."}</div>
+            `;
+
+            resultsDiv.appendChild(div);
+          });
+        })
+        .catch(() => {
+          resultsDiv.innerHTML = "<p>Fehler bei der Suche.</p>";
+        });
+    }
+  </script>
+
+</body>
+</html>
