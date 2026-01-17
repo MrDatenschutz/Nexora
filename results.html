@@ -20,20 +20,22 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 12px;
       background: #0f172a;
       border-bottom: 1px solid #1f2937;
       position: sticky;
       top: 0;
+      z-index: 10;
     }
 
     .topbar img {
       height: 40px;
+      max-height: 100%;
+      object-fit: contain;
     }
 
     .topbar h1 {
       font-size: 1.8rem;
-      margin: 0;
+      margin-left: 10px;
       color: #38bdf8;
     }
 
@@ -116,7 +118,6 @@
   <div id="results"></div>
 
   <script>
-    // Suchbegriff aus URL lesen
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get("q");
 
@@ -134,7 +135,6 @@
       }
     });
 
-    // LangSearch API
     function performSearch(q) {
       resultsDiv.innerHTML = "<p>Suche läuft...</p>";
 
@@ -162,7 +162,7 @@
           });
         })
         .catch(() => {
-          resultsDiv.innerHTML = "<p>Fehler bei der Suche.</p>";
+          resultsDiv.innerHTML = "<p>Fehler bei der Suche. Bitte später erneut versuchen.</p>";
         });
     }
   </script>
