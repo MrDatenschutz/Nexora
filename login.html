@@ -47,7 +47,7 @@
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      fetch("/login", {
+      fetch("https://backend-f-r-registrierung.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
@@ -55,7 +55,7 @@
       .then(res => res.text())
       .then(data => {
         if (data === "Login erfolgreich") {
-          window.location.href = "index.html"; // oder results.html
+          window.location.href = "index.html";
         } else {
           document.getElementById("message").textContent = data;
         }
