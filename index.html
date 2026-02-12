@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <title>Nexora – Deine Suchmaschine</title>
 
-  <!-- Lunr.js über CDN (Methode 1) -->
-  <script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
-
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -97,7 +94,70 @@
   <!-- Ergebnisse -->
   <div id="results"></div>
 
-  <script src="searchables.js"></script>
+  <!-- Eigene Suchlogik -->
+  <script>
+    // 🔍 Hier hinterlegst du ALLE Seiten, die durchsuchbar sein sollen
+    const pages = [
+      {
+        title: "Amazon Deutschland",
+        url: "https://www.amazon.de",
+        desc: "Online-Shop für Elektronik, Bücher, Games, Kleidung und vieles mehr."
+      },
+      {
+        title: "Startseite",
+        url: "index.html",
+        desc: "Willkommen bei Nexora, deiner Suchmaschine."
+      },
+      {
+        title: "Kontakt",
+        url: "kontakt.html",
+        desc: "Hier findest du Kontaktmöglichkeiten zu Nexora."
+      },
+      {
+        title: "Über Nexora",
+        url: "ueber-nexora.html",
+        desc: "Informationen über das Nexora Projekt."
+      },
+      {
+        title: "Welcome Tour",
+        url: "welcome_tour.html",
+        desc: "Eine Tour durch die Funktionen von Nexora."
+      }
+    ];
+
+    const input = document.getElementById("searchInput");
+    const resultsDiv = document.getElementById("results");
+
+    input.addEventListener("input", function () {
+      const query = input.value.toLowerCase().trim();
+      resultsDiv.innerHTML = "";
+
+      if (query === "") return;
+
+      // 🔎 Filter: Titel + Beschreibung durchsuchen
+      const filtered = pages.filter(p =>
+        p.title.toLowerCase().includes(query) ||
+        p.desc.toLowerCase().includes(query)
+      );
+
+      // ❌ Keine Treffer
+      if (filtered.length === 0) {
+        resultsDiv.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
+        return;
+      }
+
+      // ✅ Treffer anzeigen
+      filtered.forEach(p => {
+        const item = document.createElement("div");
+        item.className = "result-item";
+        item.innerHTML = `
+          <a href="${p.url}" target="_blank">${p.title}</a>
+          <div class="result-desc">${p.desc}</div>
+        `;
+        resultsDiv.appendChild(item);
+      });
+    });
+  </script>
 
 </body>
 </html>
