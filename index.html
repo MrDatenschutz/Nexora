@@ -96,7 +96,7 @@
 
   <!-- Eigene Suchlogik -->
   <script>
-    // 🔍 Hier hinterlegst du ALLE Seiten, die durchsuchbar sein sollen
+    // 🔍 Manuell hinterlegte Websites
     const pages = [
       {
         title: "Amazon Deutschland",
@@ -134,19 +134,17 @@
 
       if (query === "") return;
 
-      // 🔎 Filter: Titel + Beschreibung durchsuchen
+      // 🔎 Suche in Titel + Beschreibung
       const filtered = pages.filter(p =>
         p.title.toLowerCase().includes(query) ||
         p.desc.toLowerCase().includes(query)
       );
 
-      // ❌ Keine Treffer
       if (filtered.length === 0) {
-        resultsDiv.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
+        resultsDiv.innerHTML = "<p>Keine Treffer gefunden.</p>";
         return;
       }
 
-      // ✅ Treffer anzeigen
       filtered.forEach(p => {
         const item = document.createElement("div");
         item.className = "result-item";
