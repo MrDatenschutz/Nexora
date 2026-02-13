@@ -2,7 +2,8 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Nexora – Datenbankverwaltung</title>
+<title>Nexora – Admin Panel</title>
+
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -41,9 +42,24 @@
     }
 </style>
 </head>
+
 <body>
 
-<h1>Nexora – Datenbankverwaltung</h1>
+<script>
+// =========================
+//   PASSWORTSCHUTZ
+// =========================
+const ADMIN_PASSWORD = "NexorA";  // <--- HIER DEIN PASSWORT EINTRAGEN
+
+let userPass = prompt("Bitte Admin-Passwort eingeben:");
+
+if (userPass !== ADMIN_PASSWORD) {
+    document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:50px;'>Zugriff verweigert</h1>";
+    throw new Error("Falsches Passwort");
+}
+</script>
+
+<h1>Nexora – Admin Panel</h1>
 <p>Verwalte deine pages.txt: Duplikate finden, löschen, hinzufügen, exportieren.</p>
 
 <h2>TXT laden</h2>
@@ -67,6 +83,9 @@
 <script>
 let entries = [];
 
+// =========================
+//   TXT LADEN
+// =========================
 function loadTXT() {
     fetch("pages.txt?nocache=" + Date.now())
         .then(r => r.text())
@@ -82,6 +101,9 @@ function loadTXT() {
         });
 }
 
+// =========================
+//   TABELLE RENDERN
+// =========================
 function renderTable() {
     const search = document.getElementById("search").value.toLowerCase();
     const table = document.getElementById("table");
@@ -118,11 +140,17 @@ function renderTable() {
     exportTXT();
 }
 
+// =========================
+//   EINTRAG LÖSCHEN
+// =========================
 function deleteEntry(i) {
     entries.splice(i, 1);
     renderTable();
 }
 
+// =========================
+//   EINTRAG HINZUFÜGEN
+// =========================
 function addEntry() {
     const t = document.getElementById("newTitle").value.trim();
     const u = document.getElementById("newURL").value.trim();
@@ -139,6 +167,9 @@ function addEntry() {
     renderTable();
 }
 
+// =========================
+//   TXT EXPORTIEREN
+// =========================
 function exportTXT() {
     const out = entries.map(e => `${e.title}|${e.url}|${e.desc}`).join("\n");
     document.getElementById("export").value = out;
