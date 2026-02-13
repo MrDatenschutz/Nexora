@@ -1,10 +1,3 @@
-Kontakt|kontakt.html|Kontaktmöglichkeiten zu Nexora.
-Über Nexora|ueber-nexora.html|Informationen über das Nexora Projekt.
-Welcome Tour|welcome_tour.html|Tour durch Nexora.
-
-Kontakt|kontakt.html|Kontaktmöglichkeiten zu Nexora.
-Über Nexora|ueber-nexora.html|Informationen über das Nexora Projekt.
-Welcome Tour|welcome_tour.html|Tour durch Nexora.
 Netflix|https://www.netflix.com|Streamingdienst für Filme, Serien und Dokumentationen.
 Amazon Prime Video|https://www.primevideo.com|Filme, Serien und exklusive Amazon Originals.
 Disney+|https://www.disneyplus.com|Disney, Pixar, Marvel, Star Wars und National Geographic.
@@ -232,4 +225,5 @@ Verbraucherzentrale|https://www.verbraucherzentrale.de|Verbraucherschutz und All
 Test.de|https://www.test.de|Stiftung Warentest – Tests und Vergleiche.
 Finanztip|https://www.finanztip.de|Ratgeber zu Geld, Versicherungen und Verträgen.
 Microsoft|https://account.microsoft.com/account/Account?mkt=de-DE|Login
+
 
