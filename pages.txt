@@ -1,0 +1,6 @@
+Amazon|https://www.amazon.de|Beliebter Online-Shop für fast alles.
+YouTube|https://www.youtube.com|Die größte Videoplattform der Welt.
+Wetter|https://www.google.com/search?q=wetter|Aktuelle Wettervorhersage.
+Kontakt|kontakt.html|Kontaktmöglichkeiten zu Nexora.
+Über Nexora|ueber-nexora.html|Informationen über das Nexora Projekt.
+Welcome Tour|welcome_tour.html|Tour durch Nexora.
