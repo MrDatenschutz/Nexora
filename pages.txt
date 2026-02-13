@@ -88,3 +88,69 @@ SportScheck|https://www.sportscheck.com|Sportmode und Equipment.
 Conrad|https://www.conrad.de|Elektronik, Technik und Bauteile.
 Tchibo|https://www.tchibo.de|Wechselnde Themenwelten und Kaffeeprodukte.
 Real.de (jetzt Kaufland)|https://www.kaufland.de|Ehemaliger Real-Marktplatz, jetzt Kaufland.
+
+Wikipedia|https://www.wikipedia.org|Freies Online-Lexikon für nahezu alle Themen.
+Wikibooks|https://www.wikibooks.org|Kostenlose Lehrbücher und Lernmaterialien.
+Wikiversity|https://www.wikiversity.org|Lernplattform für akademische Inhalte.
+Wiktionary|https://www.wiktionary.org|Wörterbuch und Sprachressourcen.
+
+Khan Academy|https://www.khanacademy.org|Kostenlose Lernplattform für Mathe, Physik, Chemie und mehr.
+Coursera|https://www.coursera.org|Online-Kurse von Universitäten weltweit.
+edX|https://www.edx.org|Akademische Online-Kurse von Harvard, MIT und mehr.
+Udemy|https://www.udemy.com|Online-Kurse zu vielen Themen.
+FutureLearn|https://www.futurelearn.com|Universitätskurse und Zertifikate.
+
+Schulminator|https://www.schulminator.com|Lernhilfen für viele Schulfächer.
+Schlaukopf|https://www.schlaukopf.de|Quiz und Lernaufgaben für Schüler.
+Serlo|https://www.serlo.org|Gemeinnützige Lernplattform für Mathe und Naturwissenschaften.
+Studyflix|https://studyflix.de|Lernvideos für Schule und Studium.
+Simpleclub|https://simpleclub.com|Lernvideos und Erklärungen für viele Fächer.
+Abiweb|https://www.abiweb.de|Vorbereitung für das Abitur.
+Studysmarter|https://www.studysmarter.de|Lernkarten, Zusammenfassungen und Lernpläne.
+
+Google Scholar|https://scholar.google.com|Wissenschaftliche Artikel und Studien.
+ResearchGate|https://www.researchgate.net|Netzwerk für Wissenschaftler und Forschung.
+JSTOR|https://www.jstor.org|Wissenschaftliche Artikel und Journals.
+Semantic Scholar|https://www.semanticscholar.org|KI-basierte Suche für wissenschaftliche Arbeiten.
+BASE|https://www.base-search.net|Akademische Suchmaschine für Open-Access-Dokumente.
+
+Zotero|https://www.zotero.org|Tool zum Sammeln und Verwalten von Quellen.
+Citavi|https://www.citavi.com|Professionelles Literaturverwaltungsprogramm.
+Mendeley|https://www.mendeley.com|Literaturverwaltung und PDF-Organisation.
+BibGuru|https://www.bibguru.com|Einfacher Zitationsgenerator.
+EasyBib|https://www.easybib.com|Zitieren und Quellenverwaltung.
+
+Duden|https://www.duden.de|Rechtschreibung, Grammatik und Wortbedeutungen.
+DWDS|https://www.dwds.de|Digitales Wörterbuch der deutschen Sprache.
+Leo Wörterbuch|https://dict.leo.org|Wörterbuch für viele Sprachen.
+DeepL|https://www.deepl.com|Hochwertige Übersetzungen.
+PONS|https://www.pons.com|Wörterbuch und Sprachressourcen.
+
+Wolfram Alpha|https://www.wolframalpha.com|Mathe- und Wissensmaschine für Berechnungen.
+Geogebra|https://www.geogebra.org|Mathe-Tools für Geometrie, Algebra und Funktionen.
+Desmos|https://www.desmos.com|Online-Grafikrechner.
+Symbolab|https://www.symbolab.com|Mathe-Lösungen Schritt für Schritt.
+Photomath|https://photomath.com|Matheaufgaben per Kamera lösen.
+
+Studis Online|https://www.studis-online.de|Infos zu Studium, BAföG und Hochschulen.
+Hochschulkompass|https://www.hochschulkompass.de|Studiengänge und Hochschulen in Deutschland.
+Uni-Assist|https://www.uni-assist.de|Bewerbungsportal für internationale Studierende.
+DAAD|https://www.daad.de|Studium im Ausland und Stipendien.
+BAföG|https://www.bafög.de|Informationen zur Studienfinanzierung.
+
+Bundeszentrale für politische Bildung|https://www.bpb.de|Politische Bildung und Hintergrundwissen.
+Planet Wissen|https://www.planet-wissen.de|Wissenssendungen und Artikel.
+Spektrum|https://www.spektrum.de|Wissenschaftliche Artikel und Erklärungen.
+National Geographic|https://www.nationalgeographic.de|Wissen über Natur, Tiere und Wissenschaft.
+
+PDF24|https://tools.pdf24.org|PDF-Tools für Schule und Studium.
+ILovePDF|https://www.ilovepdf.com|PDFs zusammenfügen, komprimieren und bearbeiten.
+Canva|https://www.canva.com|Designs für Präsentationen und Referate.
+Prezi|https://prezi.com|Interaktive Präsentationen.
+MindMeister|https://www.mindmeister.com|Mindmaps für Projekte und Lernen.
+Notion|https://www.notion.so|Notizen, Organisation und Wissensmanagement.
+Evernote|https://www.evernote.com|Notizen und Dokumentenorganisation.
+
+StackExchange|https://stackexchange.com|Fragen und Antworten zu vielen Themen.
+StackOverflow|https://stackoverflow.com|Fragen und Antworten zu Programmierung.
+Quora|https://www.quora.com|Wissensplattform mit Antworten von Nutzern.
