@@ -45,11 +45,11 @@
 
 <body>
 
+<!-- ========================= -->
+<!--   PASSWORTSCHUTZ          -->
+<!-- ========================= -->
 <script>
-// =========================
-//   PASSWORTSCHUTZ
-// =========================
-const ADMIN_PASSWORD = "NexorA";  // <--- HIER DEIN PASSWORT EINTRAGEN
+const ADMIN_PASSWORD = "DEIN_PASSWORT_HIER";  // <--- HIER DEIN PASSWORT EINTRAGEN
 
 let userPass = prompt("Bitte Admin-Passwort eingeben:");
 
@@ -79,6 +79,7 @@ if (userPass !== ADMIN_PASSWORD) {
 
 <h2>Exportierte pages.txt</h2>
 <textarea id="export" rows="10"></textarea>
+<button onclick="copyExport()">Inhalt kopieren</button>
 
 <script>
 let entries = [];
@@ -173,6 +174,16 @@ function addEntry() {
 function exportTXT() {
     const out = entries.map(e => `${e.title}|${e.url}|${e.desc}`).join("\n");
     document.getElementById("export").value = out;
+}
+
+// =========================
+//   COPY BUTTON
+// =========================
+function copyExport() {
+    const text = document.getElementById("export").value;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("pages.txt wurde kopiert!");
+    });
 }
 </script>
 
