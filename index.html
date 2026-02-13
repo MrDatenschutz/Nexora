@@ -96,8 +96,11 @@
 
   <!-- Suchlogik -->
   <script>
-    // 🔍 Manuell hinterlegte Websites
+    // Basis-URL deines Projekts auf GitHub Pages
+    const BASE = "https://mrdatenschutz.github.io/Nexora/";
+
     const pages = [
+      // Externe Seiten
       {
         title: "Amazon",
         url: "https://www.amazon.de",
@@ -114,29 +117,29 @@
         desc: "Aktuelle Wettervorhersage."
       },
 
-      /* --- Deine bestehenden Nexora-Seiten bleiben erhalten --- */
+      // Deine eigenen Seiten – jetzt mit absoluter URL
       {
         title: "Startseite",
-        url: "index.html",
+        url: BASE + "index.html",
         desc: "Willkommen bei Nexora, deiner Suchmaschine."
       },
       {
         title: "Kontakt",
-        url: "kontakt.html",
+        url: BASE + "kontakt.html",
         desc: "Hier findest du Kontaktmöglichkeiten zu Nexora."
       },
       {
         title: "Über Nexora",
-        url: "ueber-nexora.html",
+        url: BASE + "ueber-nexora.html",
         desc: "Informationen über das Nexora Projekt."
       },
       {
         title: "Welcome Tour",
-        url: "welcome_tour.html",
+        url: BASE + "welcome_tour.html",
         desc: "Eine Tour durch die Funktionen von Nexora."
       }
 
-      // 👉 HIER kannst du deine Top‑100 Einträge einfach dranhängen
+      // Hier kannst du deine weiteren Einträge anhängen
     ];
 
     const input = document.getElementById("searchInput");
