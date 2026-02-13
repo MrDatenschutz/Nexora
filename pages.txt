@@ -8,3 +8,5 @@ Welcome Tour|welcome_tour.html|Tour durch Nexora.
 Google|https://www.google.com|Die bekannteste Suchmaschine der Welt.
 Wikipedia|https://www.wikipedia.org|Freies Online-Lexikon mit Millionen Artikeln.
 Netflix|https://www.netflix.com|Streamingdienst für Filme und Serien.
+IKEA|https://www.ikea.com/de/de/|Möbelhaus mit günstigen Möbeln, Deko und Wohnideen.
+
