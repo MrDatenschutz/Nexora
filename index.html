@@ -91,63 +91,69 @@
 
   <div id="results"></div>
 
-  <!-- SCRIPT MUSS GANZ UNTEN SEIN -->
+  <!-- SCRIPT START -->
   <script>
-    let pages = [];
-    let loaded = false;
+    document.addEventListener("DOMContentLoaded", () => {
 
-    fetch("pages.txt?nocache=" + Date.now())
-      .then(response => response.text())
-      .then(text => {
-        const lines = text.split("\n").map(l => l.trim()).filter(l => l.length > 0);
+      let pages = [];
+      let loaded = false;
 
-        pages = lines.map(line => {
-          const parts = line.split("|");
-          return {
-            title: parts[0] || "",
-            url: parts[1] || "",
-            desc: parts[2] || ""
-          };
+      // TXT laden (relativ + Cache-Bypass)
+      fetch("pages.txt?nocache=" + Date.now())
+        .then(response => response.text())
+        .then(text => {
+          const lines = text.split("\n").map(l => l.trim()).filter(l => l.length > 0);
+
+          pages = lines.map(line => {
+            const parts = line.split("|");
+            return {
+              title: parts[0] || "",
+              url: parts[1] || "",
+              desc: parts[2] || ""
+            };
+          });
+
+          loaded = true;
         });
 
-        loaded = true;
+      const input = document.getElementById("searchInput");
+      const resultsDiv = document.getElementById("results");
+
+      input.addEventListener("input", function () {
+        const query = input.value.toLowerCase().trim();
+        resultsDiv.innerHTML = "";
+
+        if (!loaded) {
+          resultsDiv.innerHTML = "<p>Daten werden geladen...</p>";
+          return;
+        }
+
+        if (query === "") return;
+
+        const filtered = pages.filter(p =>
+          p.title.toLowerCase().includes(query) ||
+          p.desc.toLowerCase().includes(query)
+        );
+
+        if (filtered.length === 0) {
+          resultsDiv.innerHTML = "<p>Keine Treffer gefunden.</p>";
+          return;
+        }
+
+        filtered.forEach(p => {
+          const item = document.createElement("div");
+          item.className = "result-item";
+          item.innerHTML = `
+            <a href="${p.url}" target="_blank">${p.title}</a>
+            <div class="result-desc">${p.desc}</div>
+          `;
+          resultsDiv.appendChild(item);
+        });
       });
 
-    const input = document.getElementById("searchInput");
-    const resultsDiv = document.getElementById("results");
-
-    input.addEventListener("input", function () {
-      const query = input.value.toLowerCase().trim();
-      resultsDiv.innerHTML = "";
-
-      if (!loaded) {
-        resultsDiv.innerHTML = "<p>Daten werden geladen...</p>";
-        return;
-      }
-
-      if (query === "") return;
-
-      const filtered = pages.filter(p =>
-        p.title.toLowerCase().includes(query) ||
-        p.desc.toLowerCase().includes(query)
-      );
-
-      if (filtered.length === 0) {
-        resultsDiv.innerHTML = "<p>Keine Treffer gefunden.</p>";
-        return;
-      }
-
-      filtered.forEach(p => {
-        const item = document.createElement("div");
-        item.className = "result-item";
-        item.innerHTML = `
-          <a href="${p.url}" target="_blank">${p.title}</a>
-          <div class="result-desc">${p.desc}</div>
-        `;
-        resultsDiv.appendChild(item);
-      });
     });
   </script>
+  <!-- SCRIPT ENDE -->
 
 </body>
 </html>
