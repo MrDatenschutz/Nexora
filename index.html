@@ -13,17 +13,24 @@
       padding: 40px;
     }
 
-    /* Neuer Announcements-Link oben rechts */
-    .announce-top-right {
+    /* Rechts oben Link-Bereich */
+    .top-right-links {
       position: absolute;
       top: 20px;
       right: 20px;
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    .top-right-links a {
+      display: block;
       font-size: 1.1rem;
       font-weight: bold;
       color: #38bdf8;
       text-decoration: none;
     }
-    .announce-top-right:hover {
+
+    .top-right-links a:hover {
       text-decoration: underline;
     }
 
@@ -93,10 +100,12 @@
 </head>
 <body>
 
-  <!-- NEUER LINK OBEN RECHTS -->
-  <a class="announce-top-right" href="https://mrdatenschutz.github.io/Nexora/ank%C3%BCndigung.html">
-    Announcements
-  </a>
+  <!-- NEUE LINKS OBEN RECHTS -->
+  <div class="top-right-links">
+    <a href="https://mrdatenschutz.github.io/Nexora/ank%C3%BCndigung.html">Announcements</a>
+    <a href="ueber-nexora.html">Über Nexora</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
 
   <div class="header">
     <img src="nexora-logo.png" alt="Nexora Logo">
