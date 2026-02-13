@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Nexora – Deine kompetente Suchmaschine</title>
+  <title>Nexora – Deine Suchmaschine</title>
 
   <style>
     body {
@@ -12,17 +12,20 @@
       text-align: center;
       padding: 40px;
     }
-    .header {
+
+    /* Neuer Header-Container */
+    .header-container {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 30px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 30px auto;
     }
 
-    /* Neuer Announcements-Link */
+    /* Link oben rechts */
     .announce-link {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: bold;
       color: #38bdf8;
       text-decoration: none;
@@ -31,6 +34,13 @@
       text-decoration: underline;
     }
 
+    /* Original Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
     .header img {
       height: 80px;
     }
@@ -39,12 +49,15 @@
       margin: 0;
       color: #38bdf8;
     }
+
     p {
       color: #9ca3af;
     }
+
     #searchBox {
       margin-top: 30px;
     }
+
     input[type="text"] {
       width: 60%;
       max-width: 500px;
@@ -59,6 +72,7 @@
     input[type="text"]:focus {
       border-color: #38bdf8;
     }
+
     #results {
       margin-top: 30px;
       max-width: 600px;
@@ -66,6 +80,7 @@
       margin-right: auto;
       text-align: left;
     }
+
     .result-item {
       padding: 10px 14px;
       border-radius: 8px;
@@ -73,6 +88,7 @@
       margin-bottom: 10px;
       border: 1px solid #1f2937;
     }
+
     .result-item a {
       color: #38bdf8;
       text-decoration: none;
@@ -81,6 +97,7 @@
     .result-item a:hover {
       text-decoration: underline;
     }
+
     .result-desc {
       font-size: 0.9rem;
       color: #9ca3af;
@@ -90,13 +107,20 @@
 </head>
 <body>
 
-  <div class="header">
+  <!-- Neuer Header-Container -->
+  <div class="header-container">
 
-    <!-- NEUER ANNOUNCEMENTS-LINK -->
-    <a href="announcements.html" class="announce-link">Announcements</a>
+    <!-- Link oben rechts -->
+    <a class="announce-link" href="https://mrdatenschutz.github.io/Nexora/ank%C3%BCndigung.html">
+      Announcements
+    </a>
 
-    <img src="nexora-logo.png" alt="Nexora Logo">
-    <h1>Nexora</h1>
+    <!-- Original Header bleibt unverändert -->
+    <div class="header">
+      <img src="nexora-logo.png" alt="Nexora Logo">
+      <h1>Nexora</h1>
+    </div>
+
   </div>
 
   <p>Die Suchmaschine für deine Inhalte.</p>
@@ -114,7 +138,6 @@
       let pages = [];
       let loaded = false;
 
-      // TXT laden (relativ + Cache-Bypass)
       fetch("pages.txt?nocache=" + Date.now())
         .then(response => response.text())
         .then(text => {
