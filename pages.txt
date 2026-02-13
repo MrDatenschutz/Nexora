@@ -1,8 +1,10 @@
 Amazon|https://www.amazon.de|Beliebter Online-Shop für fast alles.
 YouTube|https://www.youtube.com|Die größte Videoplattform der Welt.
 Wetter|https://www.google.com/search?q=wetter|Aktuelle Wettervorhersage.
-Chefkoch|https://www.chefkoch.de|Deutschlands größte Rezeptplattform mit Millionen von Kochideen.
+Chefkoch|https://www.chefkoch.de|Deutschlands größte Rezeptplattform.
 Kontakt|kontakt.html|Kontaktmöglichkeiten zu Nexora.
 Über Nexora|ueber-nexora.html|Informationen über das Nexora Projekt.
-
 Welcome Tour|welcome_tour.html|Tour durch Nexora.
+Google|https://www.google.com|Die bekannteste Suchmaschine der Welt.
+Wikipedia|https://www.wikipedia.org|Freies Online-Lexikon mit Millionen Artikeln.
+Netflix|https://www.netflix.com|Streamingdienst für Filme und Serien.
