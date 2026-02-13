@@ -96,51 +96,23 @@
 
   <!-- Suchlogik -->
   <script>
-    // Basis-URL deines Projekts auf GitHub Pages
-    const BASE = "https://mrdatenschutz.github.io/Nexora/";
+    let pages = [];
 
-    const pages = [
-      // Externe Seiten
-      {
-        title: "Amazon",
-        url: "https://www.amazon.de",
-        desc: "Beliebter Online-Shop für fast alles."
-      },
-      {
-        title: "YouTube",
-        url: "https://www.youtube.com",
-        desc: "Die größte Videoplattform der Welt."
-      },
-      {
-        title: "Wetter",
-        url: "https://www.google.com/search?q=wetter",
-        desc: "Aktuelle Wettervorhersage."
-      },
+    // 🔄 TXT-Datei laden
+    fetch("pages.txt")
+      .then(response => response.text())
+      .then(text => {
+        const lines = text.split("\n").map(l => l.trim()).filter(l => l.length > 0);
 
-      // Deine eigenen Seiten – jetzt mit absoluter URL
-      {
-        title: "Startseite",
-        url: BASE + "index.html",
-        desc: "Willkommen bei Nexora, deiner Suchmaschine."
-      },
-      {
-        title: "Kontakt",
-        url: BASE + "kontakt.html",
-        desc: "Hier findest du Kontaktmöglichkeiten zu Nexora."
-      },
-      {
-        title: "Über Nexora",
-        url: BASE + "ueber-nexora.html",
-        desc: "Informationen über das Nexora Projekt."
-      },
-      {
-        title: "Welcome Tour",
-        url: BASE + "welcome_tour.html",
-        desc: "Eine Tour durch die Funktionen von Nexora."
-      }
-
-      // Hier kannst du deine weiteren Einträge anhängen
-    ];
+        pages = lines.map(line => {
+          const parts = line.split("|");
+          return {
+            title: parts[0] || "",
+            url: parts[1] || "",
+            desc: parts[2] || ""
+          };
+        });
+      });
 
     const input = document.getElementById("searchInput");
     const resultsDiv = document.getElementById("results");
