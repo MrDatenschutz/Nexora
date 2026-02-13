@@ -97,8 +97,9 @@
   <!-- Suchlogik -->
   <script>
     let pages = [];
+    let loaded = false;
 
-    // 🔄 TXT-Datei laden
+    // TXT-Datei laden
     fetch("pages.txt")
       .then(response => response.text())
       .then(text => {
@@ -112,6 +113,8 @@
             desc: parts[2] || ""
           };
         });
+
+        loaded = true; // TXT vollständig geladen
       });
 
     const input = document.getElementById("searchInput");
@@ -120,6 +123,12 @@
     input.addEventListener("input", function () {
       const query = input.value.toLowerCase().trim();
       resultsDiv.innerHTML = "";
+
+      // Blockiere Suche, bis TXT geladen ist
+      if (!loaded) {
+        resultsDiv.innerHTML = "<p>Daten werden geladen...</p>";
+        return;
+      }
 
       if (query === "") return;
 
