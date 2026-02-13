@@ -222,3 +222,60 @@ Sporcle|https://www.sporcle.com|Quizspiele zu vielen Themen.
 Coolmath Games|https://www.coolmathgames.com|Minispiele und Denkspiele.
 Miniclip|https://www.miniclip.com|Online-Minispiele.
 Kongregate|https://www.kongregate.com|Browsergames und Indie-Spiele.
+
+Tagesschau|https://www.tagesschau.de|Deutschlands bekannteste Nachrichtensendung und Nachrichtenportal.
+ZDF Heute|https://www.zdf.de/nachrichten|Nachrichten, Hintergründe und Live-Streams.
+Spiegel Online|https://www.spiegel.de|Nachrichten, Analysen und Reportagen.
+Focus Online|https://www.focus.de|Aktuelle Nachrichten und Ratgeber.
+Süddeutsche Zeitung|https://www.sueddeutsche.de|Qualitätsjournalismus und Hintergrundberichte.
+FAZ|https://www.faz.net|Frankfurter Allgemeine Zeitung – Politik, Wirtschaft, Kultur.
+Welt|https://www.welt.de|Nachrichten und Live-TV.
+Zeit Online|https://www.zeit.de|Hintergrundberichte, Analysen und Kommentare.
+taz|https://taz.de|Unabhängige Tageszeitung mit Fokus auf Politik und Gesellschaft.
+Bild|https://www.bild.de|Boulevardzeitung mit aktuellen Nachrichten.
+
+BR24|https://www.br.de/nachrichten|Bayerischer Rundfunk – Nachrichten aus Bayern und der Welt.
+MDR Aktuell|https://www.mdr.de/nachrichten|Nachrichten aus Mitteldeutschland.
+NDR Info|https://www.ndr.de/nachrichten|Norddeutsche Nachrichten.
+WDR Aktuell|https://www1.wdr.de/nachrichten|Nachrichten aus NRW.
+
+Deutschlandfunk|https://www.deutschlandfunk.de|Nachrichten, Hintergrund und Analysen.
+ARD Mediathek|https://www.ardmediathek.de|Öffentlich-rechtliche Inhalte und Dokus.
+ZDF Mediathek|https://www.zdf.de|Sendungen, Dokus und Nachrichten.
+
+katholisch.de|https://www.katholisch.de|Portal der katholischen Kirche in Deutschland.
+evangelisch.de|https://www.evangelisch.de|Portal der evangelischen Kirche.
+Vatican News|https://www.vaticannews.va|Nachrichten aus dem Vatikan.
+Bibelserver|https://www.bibleserver.com|Online-Bibeln in vielen Übersetzungen.
+Religionen-entdecken|https://www.religionen-entdecken.de|Kindgerechte Infos über Weltreligionen.
+
+Lehrerfreund|https://www.lehrerfreund.de|Materialien, Tipps und Unterrichtshilfen.
+4teachers|https://www.4teachers.de|Arbeitsblätter und Unterrichtsmaterialien.
+Lehrer-online|https://www.lehrer-online.de|Unterrichtsmaterialien und digitale Bildung.
+Schule.at|https://www.schule.at|Materialien für Lehrer und Schüler.
+Bildungsserver|https://www.bildungsserver.de|Bildungsinformationen für Schule und Unterricht.
+Unterrichtsmaterial|https://www.unterrichtsmaterial.ch|Materialien für viele Fächer.
+Edutags|https://www.edutags.de|Bildungsmaterialien und OER-Sammlungen.
+
+Cornelsen|https://www.cornelsen.de|Schulbücher und Unterrichtsmaterialien.
+Klett|https://www.klett.de|Schulbuchverlag mit Materialien für alle Fächer.
+Westermann|https://www.westermann.de|Schulbücher, Arbeitshefte und digitale Inhalte.
+Schroedel|https://www.schroedel.de|Unterrichtsmaterialien und Schulbücher.
+Duden Learnattack|https://learnattack.de|Lernhilfen und Nachhilfe.
+
+Bundesregierung|https://www.bundesregierung.de|Offizielle Informationen der Bundesregierung.
+Bundeszentrale für politische Bildung|https://www.bpb.de|Politische Bildung und Hintergrundwissen.
+Deutsche Rentenversicherung|https://www.deutsche-rentenversicherung.de|Infos zur Rente.
+Bundesagentur für Arbeit|https://www.arbeitsagentur.de|Jobsuche, Ausbildung und Beratung.
+Bürgeramt Info|https://www.buergeramt.info|Infos zu Ämtern und Dokumenten.
+
+Wetter.com|https://www.wetter.com|Wettervorhersagen und Unwetterwarnungen.
+DWD|https://www.dwd.de|Deutscher Wetterdienst – offizielle Wetterwarnungen.
+ADAC|https://www.adac.de|Verkehr, Stau, Reisen und Auto.
+Bahn.de|https://www.bahn.de|Zugverbindungen und Tickets.
+Gesundheitsinformation|https://www.gesundheitsinformation.de|Medizinische Infos für den Alltag.
+Apotheken Umschau|https://www.apotheken-umschau.de|Gesundheitsthemen und Ratgeber.
+
+Verbraucherzentrale|https://www.verbraucherzentrale.de|Verbraucherschutz und Alltagsinfos.
+Test.de|https://www.test.de|Stiftung Warentest – Tests und Vergleiche.
+Finanztip|https://www.finanztip.de|Ratgeber zu Geld, Versicherungen und Verträgen.
