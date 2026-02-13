@@ -154,3 +154,71 @@ Evernote|https://www.evernote.com|Notizen und Dokumentenorganisation.
 StackExchange|https://stackexchange.com|Fragen und Antworten zu vielen Themen.
 StackOverflow|https://stackoverflow.com|Fragen und Antworten zu Programmierung.
 Quora|https://www.quora.com|Wissensplattform mit Antworten von Nutzern.
+
+Steam|https://store.steampowered.com|Die größte PC-Gaming-Plattform mit Spielen, Mods und Community.
+Epic Games Store|https://www.epicgames.com/store|PC-Spiele, kostenlose Games und Exklusivtitel.
+GOG|https://www.gog.com|DRM-freie Spiele und Klassiker.
+Ubisoft Store|https://store.ubisoft.com|Spiele von Ubisoft wie Assassin’s Creed und Far Cry.
+EA App|https://www.ea.com/ea-app|Spiele von Electronic Arts.
+Battle.net|https://www.blizzard.com|Blizzard-Spiele wie WoW, Diablo und Overwatch.
+Rockstar Games Launcher|https://www.rockstargames.com|GTA, Red Dead Redemption und mehr.
+
+PlayStation Store|https://store.playstation.com|Digitale Spiele für PlayStation.
+Xbox Store|https://www.xbox.com/de-DE/games|Digitale Spiele für Xbox.
+Nintendo eShop|https://www.nintendo.com/eshop|Digitale Spiele für Nintendo Switch.
+
+Humble Bundle|https://www.humblebundle.com|Spiele-Bundles und Rabatte für einen guten Zweck.
+Green Man Gaming|https://www.greenmangaming.com|Günstige PC-Spielkeys.
+Instant Gaming|https://www.instant-gaming.com|Günstige Gamekeys für PC und Konsole.
+MMOGA|https://www.mmoga.net|Gamekeys, Guthaben und Ingame-Währungen.
+
+Twitch|https://www.twitch.tv|Livestreaming für Gaming, Musik und IRL-Content.
+YouTube Gaming|https://www.youtube.com/gaming|Gaming-Videos und Livestreams.
+Kick|https://kick.com|Livestreaming-Plattform für Creator und Gaming.
+Discord|https://discord.com|Community- und Voice-Plattform für Gamer.
+
+IGN|https://www.ign.com|Gaming-News, Reviews und Guides.
+GameStar|https://www.gamestar.de|Deutsche Gaming-News und Tests.
+PC Gamer|https://www.pcgamer.com|PC-Gaming-News und Reviews.
+Metacritic|https://www.metacritic.com|Bewertungen für Spiele, Filme und Serien.
+HowLongToBeat|https://howlongtobeat.com|Spielzeiten für Games.
+
+Chess.com|https://www.chess.com|Die größte Schachplattform der Welt.
+Lichess|https://lichess.org|Kostenlose Schachplattform mit Analyse-Tools.
+BoardGameGeek|https://boardgamegeek.com|Datenbank für Brettspiele und Tabletop.
+Tabletopia|https://tabletopia.com|Online-Brettspiele digital spielen.
+Tabletop Simulator|https://www.tabletopsimulator.com|Virtuelle Brettspiel-Engine.
+
+Minecraft.net|https://www.minecraft.net|Offizielle Minecraft-Seite.
+CurseForge|https://www.curseforge.com|Mods für Minecraft, WoW und viele andere Spiele.
+Planet Minecraft|https://www.planetminecraft.com|Minecraft-Maps, Skins und Mods.
+ModDB|https://www.moddb.com|Mods für viele Spiele.
+
+Speedrun.com|https://www.speedrun.com|Speedrunning-Community und Rekorde.
+TASVideos|https://tasvideos.org|Tool-Assisted Speedruns und Analysen.
+
+RetroGames.cz|https://www.retrogames.cz|Klassische Spiele im Browser.
+Internet Archive Games|https://archive.org/details/softwarelibrary|Retrospiele und Emulatoren.
+EmulatorGames|https://www.emulatorgames.net|ROMs und Emulatoren.
+
+Pokémon Showdown|https://pokemonshowdown.com|Online Pokémon-Kämpfe.
+Roblox|https://www.roblox.com|Online-Spielplattform mit Millionen Spielen.
+Fortnite|https://www.fortnite.com|Battle Royale und Creative Mode.
+League of Legends|https://www.leagueoflegends.com|MOBA-Spiel von Riot Games.
+Valorant|https://playvalorant.com|Taktischer Shooter von Riot Games.
+Counter-Strike 2|https://www.counter-strike.net|Taktischer Shooter von Valve.
+Dota 2|https://www.dota2.com|MOBA-Spiel von Valve.
+
+Epic Games Fortnite Tracker|https://fortnitetracker.com|Statistiken für Fortnite.
+Tracker.gg|https://tracker.gg|Statistiken für viele Spiele.
+OP.GG|https://www.op.gg|Statistiken und Builds für League of Legends.
+
+Pokémon TCG Online|https://tcg.pokemon.com|Online-Sammelkartenspiel.
+Yu-Gi-Oh! Master Duel|https://www.konami.com/yugioh/masterduel|Digitales Yu-Gi-Oh!-Kartenspiel.
+Magic: The Gathering Arena|https://magic.wizards.com/arena|Digitales Magic-Kartenspiel.
+
+Geoguessr|https://www.geoguessr.com|Geografie-Spiel basierend auf Google Street View.
+Sporcle|https://www.sporcle.com|Quizspiele zu vielen Themen.
+Coolmath Games|https://www.coolmathgames.com|Minispiele und Denkspiele.
+Miniclip|https://www.miniclip.com|Online-Minispiele.
+Kongregate|https://www.kongregate.com|Browsergames und Indie-Spiele.
