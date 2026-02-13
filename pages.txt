@@ -2,6 +2,9 @@ Kontakt|kontakt.html|Kontaktmöglichkeiten zu Nexora.
 Über Nexora|ueber-nexora.html|Informationen über das Nexora Projekt.
 Welcome Tour|welcome_tour.html|Tour durch Nexora.
 
+Kontakt|kontakt.html|Kontaktmöglichkeiten zu Nexora.
+Über Nexora|ueber-nexora.html|Informationen über das Nexora Projekt.
+Welcome Tour|welcome_tour.html|Tour durch Nexora.
 Netflix|https://www.netflix.com|Streamingdienst für Filme, Serien und Dokumentationen.
 Amazon Prime Video|https://www.primevideo.com|Filme, Serien und exklusive Amazon Originals.
 Disney+|https://www.disneyplus.com|Disney, Pixar, Marvel, Star Wars und National Geographic.
@@ -11,30 +14,23 @@ WOW|https://www.wowtv.de|Sky‑Streamingdienst für Serien, Filme und Live‑Spo
 Paramount+|https://www.paramountplus.com|Serien, Filme und Originals von Paramount.
 Hulu|https://www.hulu.com|US‑Streamingdienst für Serien, Filme und Live‑TV.
 HBO Max|https://www.max.com|Serien, Filme und HBO‑Originals.
-
 Crunchyroll|https://www.crunchyroll.com|Der größte Anime‑Streamingdienst weltweit.
 Aniworld|https://aniworld.to|Kostenloser Anime‑Streamingdienst.
 HiDive|https://www.hidive.com|Anime‑Plattform mit exklusiven Titeln.
 Wakanim|https://www.wakanim.tv|Anime‑Streaming (Fusion mit Crunchyroll).
-
-Twitch|https://www.twitch.tv|Livestreaming für Gaming, Musik und IRL‑Content.
 YouTube Live|https://www.youtube.com/live|Livestreaming über YouTube.
-Kick|https://kick.com|Livestreaming‑Plattform für Creator und Gaming.
 Facebook Watch|https://www.facebook.com/watch|Livestreaming und Video‑Content.
-
 Spotify|https://www.spotify.com|Musik‑Streaming mit Millionen Songs und Podcasts.
 Apple Music|https://www.apple.com/apple-music/|Musik‑Streaming von Apple.
 Amazon Music|https://music.amazon.de|Musik‑Streaming von Amazon.
 Deezer|https://www.deezer.com|Musik‑Streamingdienst aus Frankreich.
 Tidal|https://tidal.com|Hochwertiges Musik‑Streaming in HiFi‑Qualität.
 SoundCloud|https://soundcloud.com|Plattform für Musik, Remixes und Creator.
-
 DAZN|https://www.dazn.com|Sport‑Streaming: Fußball, Boxen, NFL und mehr.
 ESPN+|https://www.espn.com/espnplus|US‑Sport‑Streamingdienst.
 NBA League Pass|https://www.nba.com/leaguepass|Offizielles NBA‑Streaming.
 NFL Game Pass|https://www.nfl.com/gamepass|Offizielles NFL‑Streaming.
 NHL TV|https://www.nhl.com/tv|Offizielles NHL‑Streaming.
-
 Amazon|https://www.amazon.de|Der größte Online-Shop für fast alles.
 eBay|https://www.ebay.de|Online-Marktplatz für neue und gebrauchte Produkte.
 Otto|https://www.otto.de|Großer deutscher Versandhandel für Mode, Technik und Möbel.
@@ -43,63 +39,50 @@ About You|https://www.aboutyou.de|Mode-Shop mit personalisierten Empfehlungen.
 H&M|https://www.hm.com/de|Mode und Accessoires für Damen, Herren und Kinder.
 C&A|https://www.c-and-a.com/de|Mode für die ganze Familie.
 Primark|https://www.primark.com/de|Günstige Mode und Accessoires.
-
 Temu|https://www.temu.com|Günstiger Online-Marktplatz für Produkte aller Art.
 AliExpress|https://www.aliexpress.com|Internationaler Marktplatz für günstige Produkte.
 Wish|https://www.wish.com|Günstige Produkte aus aller Welt.
-
 IKEA|https://www.ikea.com/de/de/|Möbelhaus mit günstigen Möbeln, Deko und Wohnideen.
 Mömax|https://www.moemax.de|Möbel und Wohnaccessoires zu günstigen Preisen.
 XXXLutz|https://www.xxxlutz.de|Großes Möbelhaus mit breitem Sortiment.
 Home24|https://www.home24.de|Online-Shop für Möbel und Wohnaccessoires.
 Wayfair|https://www.wayfair.de|Möbel und Deko für jeden Stil.
-
 MediaMarkt|https://www.mediamarkt.de|Elektronik, Haushaltsgeräte und Technik.
 Saturn|https://www.saturn.de|Elektronikmarkt mit großer Auswahl.
 Cyberport|https://www.cyberport.de|Elektronik und Computertechnik.
 Alternate|https://www.alternate.de|Hardware, Gaming und Elektronik.
 Notebooksbilliger|https://www.notebooksbilliger.de|Elektronik und Computer zu günstigen Preisen.
-
 Lidl|https://www.lidl.de|Discounter mit Online-Shop für Non-Food und Lebensmittel.
 Aldi|https://www.aldi.de|Discounter mit wechselnden Angeboten.
-Kaufland|https://www.kaufland.de|Supermarkt mit großem Online-Marktplatz.
 Rewe|https://shop.rewe.de|Lebensmittel-Lieferdienst und Supermarkt.
 Edeka|https://www.edeka.de|Supermarkt mit regionalen Angeboten.
 Netto Marken-Discount|https://www.netto-online.de|Discounter mit Online-Shop.
 Penny|https://www.penny.de|Discounter mit wöchentlichen Angeboten.
-
 KaufDA|https://www.kaufda.de|Prospekte und Angebote aus deiner Umgebung.
 MeinProspekt|https://www.meinprospekt.de|Aktuelle Prospekte und Rabatte.
 Prospektangebote|https://www.prospektangebote.de|Angebote und Prospekte vieler Händler.
-
 dm|https://www.dm.de|Drogeriemarkt mit großem Sortiment.
 Rossmann|https://www.rossmann.de|Drogeriemarkt mit Online-Shop.
 Müller|https://www.mueller.de|Drogerie, Spielwaren und Multimedia.
-
 Hornbach|https://www.hornbach.de|Baumarkt für Heimwerker und Profis.
 OBI|https://www.obi.de|Baumarkt mit großem Sortiment.
 Bauhaus|https://www.bauhaus.info|Baumarkt für Werkzeuge, Garten und Bau.
 Toom|https://www.toom.de|Baumarkt mit Fokus auf Heimwerker.
-
 Decathlon|https://www.decathlon.de|Sportartikel und Outdoor-Ausrüstung.
 Intersport|https://www.intersport.de|Sportbekleidung und Ausrüstung.
 SportScheck|https://www.sportscheck.com|Sportmode und Equipment.
-
 Conrad|https://www.conrad.de|Elektronik, Technik und Bauteile.
 Tchibo|https://www.tchibo.de|Wechselnde Themenwelten und Kaffeeprodukte.
 Real.de (jetzt Kaufland)|https://www.kaufland.de|Ehemaliger Real-Marktplatz, jetzt Kaufland.
-
 Wikipedia|https://www.wikipedia.org|Freies Online-Lexikon für nahezu alle Themen.
 Wikibooks|https://www.wikibooks.org|Kostenlose Lehrbücher und Lernmaterialien.
 Wikiversity|https://www.wikiversity.org|Lernplattform für akademische Inhalte.
 Wiktionary|https://www.wiktionary.org|Wörterbuch und Sprachressourcen.
-
 Khan Academy|https://www.khanacademy.org|Kostenlose Lernplattform für Mathe, Physik, Chemie und mehr.
 Coursera|https://www.coursera.org|Online-Kurse von Universitäten weltweit.
 edX|https://www.edx.org|Akademische Online-Kurse von Harvard, MIT und mehr.
 Udemy|https://www.udemy.com|Online-Kurse zu vielen Themen.
 FutureLearn|https://www.futurelearn.com|Universitätskurse und Zertifikate.
-
 Schulminator|https://www.schulminator.com|Lernhilfen für viele Schulfächer.
 Schlaukopf|https://www.schlaukopf.de|Quiz und Lernaufgaben für Schüler.
 Serlo|https://www.serlo.org|Gemeinnützige Lernplattform für Mathe und Naturwissenschaften.
@@ -107,42 +90,34 @@ Studyflix|https://studyflix.de|Lernvideos für Schule und Studium.
 Simpleclub|https://simpleclub.com|Lernvideos und Erklärungen für viele Fächer.
 Abiweb|https://www.abiweb.de|Vorbereitung für das Abitur.
 Studysmarter|https://www.studysmarter.de|Lernkarten, Zusammenfassungen und Lernpläne.
-
 Google Scholar|https://scholar.google.com|Wissenschaftliche Artikel und Studien.
 ResearchGate|https://www.researchgate.net|Netzwerk für Wissenschaftler und Forschung.
 JSTOR|https://www.jstor.org|Wissenschaftliche Artikel und Journals.
 Semantic Scholar|https://www.semanticscholar.org|KI-basierte Suche für wissenschaftliche Arbeiten.
 BASE|https://www.base-search.net|Akademische Suchmaschine für Open-Access-Dokumente.
-
 Zotero|https://www.zotero.org|Tool zum Sammeln und Verwalten von Quellen.
 Citavi|https://www.citavi.com|Professionelles Literaturverwaltungsprogramm.
 Mendeley|https://www.mendeley.com|Literaturverwaltung und PDF-Organisation.
 BibGuru|https://www.bibguru.com|Einfacher Zitationsgenerator.
 EasyBib|https://www.easybib.com|Zitieren und Quellenverwaltung.
-
 Duden|https://www.duden.de|Rechtschreibung, Grammatik und Wortbedeutungen.
 DWDS|https://www.dwds.de|Digitales Wörterbuch der deutschen Sprache.
 Leo Wörterbuch|https://dict.leo.org|Wörterbuch für viele Sprachen.
 DeepL|https://www.deepl.com|Hochwertige Übersetzungen.
 PONS|https://www.pons.com|Wörterbuch und Sprachressourcen.
-
 Wolfram Alpha|https://www.wolframalpha.com|Mathe- und Wissensmaschine für Berechnungen.
 Geogebra|https://www.geogebra.org|Mathe-Tools für Geometrie, Algebra und Funktionen.
 Desmos|https://www.desmos.com|Online-Grafikrechner.
 Symbolab|https://www.symbolab.com|Mathe-Lösungen Schritt für Schritt.
 Photomath|https://photomath.com|Matheaufgaben per Kamera lösen.
-
 Studis Online|https://www.studis-online.de|Infos zu Studium, BAföG und Hochschulen.
 Hochschulkompass|https://www.hochschulkompass.de|Studiengänge und Hochschulen in Deutschland.
 Uni-Assist|https://www.uni-assist.de|Bewerbungsportal für internationale Studierende.
 DAAD|https://www.daad.de|Studium im Ausland und Stipendien.
 BAföG|https://www.bafög.de|Informationen zur Studienfinanzierung.
-
-Bundeszentrale für politische Bildung|https://www.bpb.de|Politische Bildung und Hintergrundwissen.
 Planet Wissen|https://www.planet-wissen.de|Wissenssendungen und Artikel.
 Spektrum|https://www.spektrum.de|Wissenschaftliche Artikel und Erklärungen.
 National Geographic|https://www.nationalgeographic.de|Wissen über Natur, Tiere und Wissenschaft.
-
 PDF24|https://tools.pdf24.org|PDF-Tools für Schule und Studium.
 ILovePDF|https://www.ilovepdf.com|PDFs zusammenfügen, komprimieren und bearbeiten.
 Canva|https://www.canva.com|Designs für Präsentationen und Referate.
@@ -150,11 +125,9 @@ Prezi|https://prezi.com|Interaktive Präsentationen.
 MindMeister|https://www.mindmeister.com|Mindmaps für Projekte und Lernen.
 Notion|https://www.notion.so|Notizen, Organisation und Wissensmanagement.
 Evernote|https://www.evernote.com|Notizen und Dokumentenorganisation.
-
 StackExchange|https://stackexchange.com|Fragen und Antworten zu vielen Themen.
 StackOverflow|https://stackoverflow.com|Fragen und Antworten zu Programmierung.
 Quora|https://www.quora.com|Wissensplattform mit Antworten von Nutzern.
-
 Steam|https://store.steampowered.com|Die größte PC-Gaming-Plattform mit Spielen, Mods und Community.
 Epic Games Store|https://www.epicgames.com/store|PC-Spiele, kostenlose Games und Exklusivtitel.
 GOG|https://www.gog.com|DRM-freie Spiele und Klassiker.
@@ -162,45 +135,36 @@ Ubisoft Store|https://store.ubisoft.com|Spiele von Ubisoft wie Assassin’s Cree
 EA App|https://www.ea.com/ea-app|Spiele von Electronic Arts.
 Battle.net|https://www.blizzard.com|Blizzard-Spiele wie WoW, Diablo und Overwatch.
 Rockstar Games Launcher|https://www.rockstargames.com|GTA, Red Dead Redemption und mehr.
-
 PlayStation Store|https://store.playstation.com|Digitale Spiele für PlayStation.
 Xbox Store|https://www.xbox.com/de-DE/games|Digitale Spiele für Xbox.
 Nintendo eShop|https://www.nintendo.com/eshop|Digitale Spiele für Nintendo Switch.
-
 Humble Bundle|https://www.humblebundle.com|Spiele-Bundles und Rabatte für einen guten Zweck.
 Green Man Gaming|https://www.greenmangaming.com|Günstige PC-Spielkeys.
 Instant Gaming|https://www.instant-gaming.com|Günstige Gamekeys für PC und Konsole.
 MMOGA|https://www.mmoga.net|Gamekeys, Guthaben und Ingame-Währungen.
-
 Twitch|https://www.twitch.tv|Livestreaming für Gaming, Musik und IRL-Content.
 YouTube Gaming|https://www.youtube.com/gaming|Gaming-Videos und Livestreams.
 Kick|https://kick.com|Livestreaming-Plattform für Creator und Gaming.
 Discord|https://discord.com|Community- und Voice-Plattform für Gamer.
-
 IGN|https://www.ign.com|Gaming-News, Reviews und Guides.
 GameStar|https://www.gamestar.de|Deutsche Gaming-News und Tests.
 PC Gamer|https://www.pcgamer.com|PC-Gaming-News und Reviews.
 Metacritic|https://www.metacritic.com|Bewertungen für Spiele, Filme und Serien.
 HowLongToBeat|https://howlongtobeat.com|Spielzeiten für Games.
-
 Chess.com|https://www.chess.com|Die größte Schachplattform der Welt.
 Lichess|https://lichess.org|Kostenlose Schachplattform mit Analyse-Tools.
 BoardGameGeek|https://boardgamegeek.com|Datenbank für Brettspiele und Tabletop.
 Tabletopia|https://tabletopia.com|Online-Brettspiele digital spielen.
 Tabletop Simulator|https://www.tabletopsimulator.com|Virtuelle Brettspiel-Engine.
-
 Minecraft.net|https://www.minecraft.net|Offizielle Minecraft-Seite.
 CurseForge|https://www.curseforge.com|Mods für Minecraft, WoW und viele andere Spiele.
 Planet Minecraft|https://www.planetminecraft.com|Minecraft-Maps, Skins und Mods.
 ModDB|https://www.moddb.com|Mods für viele Spiele.
-
 Speedrun.com|https://www.speedrun.com|Speedrunning-Community und Rekorde.
 TASVideos|https://tasvideos.org|Tool-Assisted Speedruns und Analysen.
-
 RetroGames.cz|https://www.retrogames.cz|Klassische Spiele im Browser.
 Internet Archive Games|https://archive.org/details/softwarelibrary|Retrospiele und Emulatoren.
 EmulatorGames|https://www.emulatorgames.net|ROMs und Emulatoren.
-
 Pokémon Showdown|https://pokemonshowdown.com|Online Pokémon-Kämpfe.
 Roblox|https://www.roblox.com|Online-Spielplattform mit Millionen Spielen.
 Fortnite|https://www.fortnite.com|Battle Royale und Creative Mode.
@@ -208,21 +172,17 @@ League of Legends|https://www.leagueoflegends.com|MOBA-Spiel von Riot Games.
 Valorant|https://playvalorant.com|Taktischer Shooter von Riot Games.
 Counter-Strike 2|https://www.counter-strike.net|Taktischer Shooter von Valve.
 Dota 2|https://www.dota2.com|MOBA-Spiel von Valve.
-
 Epic Games Fortnite Tracker|https://fortnitetracker.com|Statistiken für Fortnite.
 Tracker.gg|https://tracker.gg|Statistiken für viele Spiele.
 OP.GG|https://www.op.gg|Statistiken und Builds für League of Legends.
-
 Pokémon TCG Online|https://tcg.pokemon.com|Online-Sammelkartenspiel.
 Yu-Gi-Oh! Master Duel|https://www.konami.com/yugioh/masterduel|Digitales Yu-Gi-Oh!-Kartenspiel.
 Magic: The Gathering Arena|https://magic.wizards.com/arena|Digitales Magic-Kartenspiel.
-
 Geoguessr|https://www.geoguessr.com|Geografie-Spiel basierend auf Google Street View.
 Sporcle|https://www.sporcle.com|Quizspiele zu vielen Themen.
 Coolmath Games|https://www.coolmathgames.com|Minispiele und Denkspiele.
 Miniclip|https://www.miniclip.com|Online-Minispiele.
 Kongregate|https://www.kongregate.com|Browsergames und Indie-Spiele.
-
 Tagesschau|https://www.tagesschau.de|Deutschlands bekannteste Nachrichtensendung und Nachrichtenportal.
 ZDF Heute|https://www.zdf.de/nachrichten|Nachrichten, Hintergründe und Live-Streams.
 Spiegel Online|https://www.spiegel.de|Nachrichten, Analysen und Reportagen.
@@ -233,22 +193,18 @@ Welt|https://www.welt.de|Nachrichten und Live-TV.
 Zeit Online|https://www.zeit.de|Hintergrundberichte, Analysen und Kommentare.
 taz|https://taz.de|Unabhängige Tageszeitung mit Fokus auf Politik und Gesellschaft.
 Bild|https://www.bild.de|Boulevardzeitung mit aktuellen Nachrichten.
-
 BR24|https://www.br.de/nachrichten|Bayerischer Rundfunk – Nachrichten aus Bayern und der Welt.
 MDR Aktuell|https://www.mdr.de/nachrichten|Nachrichten aus Mitteldeutschland.
 NDR Info|https://www.ndr.de/nachrichten|Norddeutsche Nachrichten.
 WDR Aktuell|https://www1.wdr.de/nachrichten|Nachrichten aus NRW.
-
 Deutschlandfunk|https://www.deutschlandfunk.de|Nachrichten, Hintergrund und Analysen.
 ARD Mediathek|https://www.ardmediathek.de|Öffentlich-rechtliche Inhalte und Dokus.
 ZDF Mediathek|https://www.zdf.de|Sendungen, Dokus und Nachrichten.
-
 katholisch.de|https://www.katholisch.de|Portal der katholischen Kirche in Deutschland.
 evangelisch.de|https://www.evangelisch.de|Portal der evangelischen Kirche.
 Vatican News|https://www.vaticannews.va|Nachrichten aus dem Vatikan.
 Bibelserver|https://www.bibleserver.com|Online-Bibeln in vielen Übersetzungen.
 Religionen-entdecken|https://www.religionen-entdecken.de|Kindgerechte Infos über Weltreligionen.
-
 Lehrerfreund|https://www.lehrerfreund.de|Materialien, Tipps und Unterrichtshilfen.
 4teachers|https://www.4teachers.de|Arbeitsblätter und Unterrichtsmaterialien.
 Lehrer-online|https://www.lehrer-online.de|Unterrichtsmaterialien und digitale Bildung.
@@ -256,26 +212,24 @@ Schule.at|https://www.schule.at|Materialien für Lehrer und Schüler.
 Bildungsserver|https://www.bildungsserver.de|Bildungsinformationen für Schule und Unterricht.
 Unterrichtsmaterial|https://www.unterrichtsmaterial.ch|Materialien für viele Fächer.
 Edutags|https://www.edutags.de|Bildungsmaterialien und OER-Sammlungen.
-
 Cornelsen|https://www.cornelsen.de|Schulbücher und Unterrichtsmaterialien.
 Klett|https://www.klett.de|Schulbuchverlag mit Materialien für alle Fächer.
 Westermann|https://www.westermann.de|Schulbücher, Arbeitshefte und digitale Inhalte.
 Schroedel|https://www.schroedel.de|Unterrichtsmaterialien und Schulbücher.
 Duden Learnattack|https://learnattack.de|Lernhilfen und Nachhilfe.
-
 Bundesregierung|https://www.bundesregierung.de|Offizielle Informationen der Bundesregierung.
 Bundeszentrale für politische Bildung|https://www.bpb.de|Politische Bildung und Hintergrundwissen.
 Deutsche Rentenversicherung|https://www.deutsche-rentenversicherung.de|Infos zur Rente.
 Bundesagentur für Arbeit|https://www.arbeitsagentur.de|Jobsuche, Ausbildung und Beratung.
 Bürgeramt Info|https://www.buergeramt.info|Infos zu Ämtern und Dokumenten.
-
 Wetter.com|https://www.wetter.com|Wettervorhersagen und Unwetterwarnungen.
 DWD|https://www.dwd.de|Deutscher Wetterdienst – offizielle Wetterwarnungen.
 ADAC|https://www.adac.de|Verkehr, Stau, Reisen und Auto.
 Bahn.de|https://www.bahn.de|Zugverbindungen und Tickets.
 Gesundheitsinformation|https://www.gesundheitsinformation.de|Medizinische Infos für den Alltag.
 Apotheken Umschau|https://www.apotheken-umschau.de|Gesundheitsthemen und Ratgeber.
-
 Verbraucherzentrale|https://www.verbraucherzentrale.de|Verbraucherschutz und Alltagsinfos.
 Test.de|https://www.test.de|Stiftung Warentest – Tests und Vergleiche.
 Finanztip|https://www.finanztip.de|Ratgeber zu Geld, Versicherungen und Verträgen.
+Microsoft|https://account.microsoft.com/account/Account?mkt=de-DE|Login
+
