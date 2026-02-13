@@ -34,3 +34,57 @@ ESPN+|https://www.espn.com/espnplus|US‑Sport‑Streamingdienst.
 NBA League Pass|https://www.nba.com/leaguepass|Offizielles NBA‑Streaming.
 NFL Game Pass|https://www.nfl.com/gamepass|Offizielles NFL‑Streaming.
 NHL TV|https://www.nhl.com/tv|Offizielles NHL‑Streaming.
+
+Amazon|https://www.amazon.de|Der größte Online-Shop für fast alles.
+eBay|https://www.ebay.de|Online-Marktplatz für neue und gebrauchte Produkte.
+Otto|https://www.otto.de|Großer deutscher Versandhandel für Mode, Technik und Möbel.
+Zalando|https://www.zalando.de|Online-Shop für Mode, Schuhe und Accessoires.
+About You|https://www.aboutyou.de|Mode-Shop mit personalisierten Empfehlungen.
+H&M|https://www.hm.com/de|Mode und Accessoires für Damen, Herren und Kinder.
+C&A|https://www.c-and-a.com/de|Mode für die ganze Familie.
+Primark|https://www.primark.com/de|Günstige Mode und Accessoires.
+
+Temu|https://www.temu.com|Günstiger Online-Marktplatz für Produkte aller Art.
+AliExpress|https://www.aliexpress.com|Internationaler Marktplatz für günstige Produkte.
+Wish|https://www.wish.com|Günstige Produkte aus aller Welt.
+
+IKEA|https://www.ikea.com/de/de/|Möbelhaus mit günstigen Möbeln, Deko und Wohnideen.
+Mömax|https://www.moemax.de|Möbel und Wohnaccessoires zu günstigen Preisen.
+XXXLutz|https://www.xxxlutz.de|Großes Möbelhaus mit breitem Sortiment.
+Home24|https://www.home24.de|Online-Shop für Möbel und Wohnaccessoires.
+Wayfair|https://www.wayfair.de|Möbel und Deko für jeden Stil.
+
+MediaMarkt|https://www.mediamarkt.de|Elektronik, Haushaltsgeräte und Technik.
+Saturn|https://www.saturn.de|Elektronikmarkt mit großer Auswahl.
+Cyberport|https://www.cyberport.de|Elektronik und Computertechnik.
+Alternate|https://www.alternate.de|Hardware, Gaming und Elektronik.
+Notebooksbilliger|https://www.notebooksbilliger.de|Elektronik und Computer zu günstigen Preisen.
+
+Lidl|https://www.lidl.de|Discounter mit Online-Shop für Non-Food und Lebensmittel.
+Aldi|https://www.aldi.de|Discounter mit wechselnden Angeboten.
+Kaufland|https://www.kaufland.de|Supermarkt mit großem Online-Marktplatz.
+Rewe|https://shop.rewe.de|Lebensmittel-Lieferdienst und Supermarkt.
+Edeka|https://www.edeka.de|Supermarkt mit regionalen Angeboten.
+Netto Marken-Discount|https://www.netto-online.de|Discounter mit Online-Shop.
+Penny|https://www.penny.de|Discounter mit wöchentlichen Angeboten.
+
+KaufDA|https://www.kaufda.de|Prospekte und Angebote aus deiner Umgebung.
+MeinProspekt|https://www.meinprospekt.de|Aktuelle Prospekte und Rabatte.
+Prospektangebote|https://www.prospektangebote.de|Angebote und Prospekte vieler Händler.
+
+dm|https://www.dm.de|Drogeriemarkt mit großem Sortiment.
+Rossmann|https://www.rossmann.de|Drogeriemarkt mit Online-Shop.
+Müller|https://www.mueller.de|Drogerie, Spielwaren und Multimedia.
+
+Hornbach|https://www.hornbach.de|Baumarkt für Heimwerker und Profis.
+OBI|https://www.obi.de|Baumarkt mit großem Sortiment.
+Bauhaus|https://www.bauhaus.info|Baumarkt für Werkzeuge, Garten und Bau.
+Toom|https://www.toom.de|Baumarkt mit Fokus auf Heimwerker.
+
+Decathlon|https://www.decathlon.de|Sportartikel und Outdoor-Ausrüstung.
+Intersport|https://www.intersport.de|Sportbekleidung und Ausrüstung.
+SportScheck|https://www.sportscheck.com|Sportmode und Equipment.
+
+Conrad|https://www.conrad.de|Elektronik, Technik und Bauteile.
+Tchibo|https://www.tchibo.de|Wechselnde Themenwelten und Kaffeeprodukte.
+Real.de (jetzt Kaufland)|https://www.kaufland.de|Ehemaliger Real-Marktplatz, jetzt Kaufland.
