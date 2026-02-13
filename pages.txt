@@ -1,12 +1,36 @@
-Amazon|https://www.amazon.de|Beliebter Online-Shop für fast alles.
-YouTube|https://www.youtube.com|Die größte Videoplattform der Welt.
-Wetter|https://www.google.com/search?q=wetter|Aktuelle Wettervorhersage.
-Chefkoch|https://www.chefkoch.de|Deutschlands größte Rezeptplattform.
 Kontakt|kontakt.html|Kontaktmöglichkeiten zu Nexora.
 Über Nexora|ueber-nexora.html|Informationen über das Nexora Projekt.
 Welcome Tour|welcome_tour.html|Tour durch Nexora.
-Google|https://www.google.com|Die bekannteste Suchmaschine der Welt.
-Wikipedia|https://www.wikipedia.org|Freies Online-Lexikon mit Millionen Artikeln.
-Netflix|https://www.netflix.com|Streamingdienst für Filme und Serien.
-IKEA|https://www.ikea.com/de/de/|Möbelhaus mit günstigen Möbeln, Deko und Wohnideen.
 
+Netflix|https://www.netflix.com|Streamingdienst für Filme, Serien und Dokumentationen.
+Amazon Prime Video|https://www.primevideo.com|Filme, Serien und exklusive Amazon Originals.
+Disney+|https://www.disneyplus.com|Disney, Pixar, Marvel, Star Wars und National Geographic.
+Apple TV+|https://tv.apple.com|Hochwertige Apple Originals und exklusive Serien.
+Sky|https://www.sky.de|Filme, Serien und Sportinhalte.
+WOW|https://www.wowtv.de|Sky‑Streamingdienst für Serien, Filme und Live‑Sport.
+Paramount+|https://www.paramountplus.com|Serien, Filme und Originals von Paramount.
+Hulu|https://www.hulu.com|US‑Streamingdienst für Serien, Filme und Live‑TV.
+HBO Max|https://www.max.com|Serien, Filme und HBO‑Originals.
+
+Crunchyroll|https://www.crunchyroll.com|Der größte Anime‑Streamingdienst weltweit.
+Aniworld|https://aniworld.to|Kostenloser Anime‑Streamingdienst.
+HiDive|https://www.hidive.com|Anime‑Plattform mit exklusiven Titeln.
+Wakanim|https://www.wakanim.tv|Anime‑Streaming (Fusion mit Crunchyroll).
+
+Twitch|https://www.twitch.tv|Livestreaming für Gaming, Musik und IRL‑Content.
+YouTube Live|https://www.youtube.com/live|Livestreaming über YouTube.
+Kick|https://kick.com|Livestreaming‑Plattform für Creator und Gaming.
+Facebook Watch|https://www.facebook.com/watch|Livestreaming und Video‑Content.
+
+Spotify|https://www.spotify.com|Musik‑Streaming mit Millionen Songs und Podcasts.
+Apple Music|https://www.apple.com/apple-music/|Musik‑Streaming von Apple.
+Amazon Music|https://music.amazon.de|Musik‑Streaming von Amazon.
+Deezer|https://www.deezer.com|Musik‑Streamingdienst aus Frankreich.
+Tidal|https://tidal.com|Hochwertiges Musik‑Streaming in HiFi‑Qualität.
+SoundCloud|https://soundcloud.com|Plattform für Musik, Remixes und Creator.
+
+DAZN|https://www.dazn.com|Sport‑Streaming: Fußball, Boxen, NFL und mehr.
+ESPN+|https://www.espn.com/espnplus|US‑Sport‑Streamingdienst.
+NBA League Pass|https://www.nba.com/leaguepass|Offizielles NBA‑Streaming.
+NFL Game Pass|https://www.nfl.com/gamepass|Offizielles NFL‑Streaming.
+NHL TV|https://www.nhl.com/tv|Offizielles NHL‑Streaming.
