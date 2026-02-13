@@ -47,6 +47,30 @@
     input[type="text"]:focus {
       border-color: #38bdf8;
     }
+
+    /* Announcements Box */
+    .announce-box {
+      background: #020617;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 40px auto 0 auto;
+      padding: 20px;
+      text-align: left;
+    }
+    .announce-title {
+      font-size: 1.4rem;
+      color: #38bdf8;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .announce-text {
+      color: #9ca3af;
+      font-size: 1rem;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
     #results {
       margin-top: 30px;
       max-width: 600px;
@@ -88,6 +112,21 @@
   <div id="searchBox">
     <input type="text" id="searchInput" placeholder="Gib deinen Suchbegriff ein...">
   </div>
+
+  <!-- =============================== -->
+  <!--   ANNOUNCEMENTS-BEREICH         -->
+  <!-- =============================== -->
+  <div class="announce-box">
+    <div class="announce-title">Announcements</div>
+
+    <div class="announce-text">
+      <!-- HIER DEINE ANKÜNDIGUNGEN EINFÜGEN -->
+      Willkommen bei Nexora!  
+      Neue Inhalte werden regelmäßig hinzugefügt.
+      <!-- ENDE DEINER ANKÜNDIGUNGEN -->
+    </div>
+  </div>
+  <!-- =============================== -->
 
   <div id="results"></div>
 
