@@ -46,16 +46,15 @@
 <body>
 
 <!-- ========================= -->
-<!--   PASSWORTSCHUTZ          -->
+<!--   LOGIN-SCHUTZ            -->
 <!-- ========================= -->
 <script>
-const ADMIN_PASSWORD = "NexorA";  // <--- HIER DEIN PASSWORT EINTRAGEN
+const ADMIN_PASSWORD = "NexorA";  // <-- Dein Passwort
 
 let userPass = prompt("Bitte Admin-Passwort eingeben:");
 
 if (userPass !== ADMIN_PASSWORD) {
-    document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:50px;'>Zugriff verweigert</h1>";
-    throw new Error("Falsches Passwort");
+    window.location.href = "DenyLogin.html";  // Weiterleitung bei Fehler
 }
 </script>
 
@@ -189,4 +188,3 @@ function copyExport() {
 
 </body>
 </html>
-
