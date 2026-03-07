@@ -36,6 +36,7 @@
       white-space: pre-line;
     }
 
+    /* Standard Button */
     .back-btn {
       display: inline-block;
       margin-top: 20px;
@@ -48,6 +49,23 @@
     }
 
     .back-btn:hover {
+      background: #0ea5e9;
+    }
+
+    /* SCHMALER Download-Button */
+    .download-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 16px;       /* kleiner */
+      background: #38bdf8;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;         /* etwas kleiner */
+    }
+
+    .download-btn:hover {
       background: #0ea5e9;
     }
   </style>
@@ -66,10 +84,10 @@
       Um auf die Startseite zu gelangen, nach unten scrollen !
 
       <!-- Download Button direkt unter dem Text -->
-      <div style="text-align:center; margin-top:15px;">
+      <div style="text-align:center;">
         <a href="https://mrdatenschutz.github.io/Nexora/Test.zip"
            download="Test.zip"
-           class="back-btn">
+           class="download-btn">
            Test_Download
         </a>
       </div>
