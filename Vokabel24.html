@@ -68,7 +68,9 @@
 <div id="area">Wähle eine Funktion.</div>
 
 <script>
-let cards = []; // alle Karteikarten
+let cards = [];          // alle Karten
+let learnList = [];      // aktuelle Lernliste
+let wrongList = [];      // falsch beantwortete Karten
 let learnIndex = 0;
 
 /* -------------------------
@@ -149,15 +151,23 @@ function openLearn() {
     return;
   }
 
+  learnList = [...cards];   // komplette Liste
+  wrongList = [];           // leeren
   learnIndex = 0;
+
   showLearnCard();
 }
 
 function showLearnCard() {
-  let c = cards[learnIndex];
+  if (learnIndex >= learnList.length) {
+    endOfRound();
+    return;
+  }
+
+  let c = learnList[learnIndex];
 
   document.getElementById("area").innerHTML = `
-    <h2>Lernen (${learnIndex+1}/${cards.length})</h2>
+    <h2>Lernen (${learnIndex+1}/${learnList.length})</h2>
 
     <div class="card">
       <h3>${c.front}</h3>
@@ -165,18 +175,47 @@ function showLearnCard() {
     </div>
 
     <button onclick="showSolution()">Zeigen</button>
-    <button onclick="nextCard()">Richtig</button>
-    <button onclick="nextCard()">Falsch</button>
+    <button onclick="markCorrect()">Richtig</button>
+    <button onclick="markWrong()">Falsch</button>
   `;
 }
 
 function showSolution() {
-  document.getElementById("solution").innerText = cards[learnIndex].back;
+  document.getElementById("solution").innerText = learnList[learnIndex].back;
 }
 
-function nextCard() {
+function markCorrect() {
   learnIndex++;
-  if (learnIndex >= cards.length) learnIndex = 0;
+  showLearnCard();
+}
+
+function markWrong() {
+  wrongList.push(learnList[learnIndex]);
+  learnIndex++;
+  showLearnCard();
+}
+
+function endOfRound() {
+  if (wrongList.length === 0) {
+    document.getElementById("area").innerHTML = `
+      <h2>Alle Vokabeln gelernt!</h2>
+      <p>Sehr gut gemacht.</p>
+    `;
+    return;
+  }
+
+  document.getElementById("area").innerHTML = `
+    <h2>Runde beendet</h2>
+    <p>Du hast ${wrongList.length} Vokabeln nicht gewusst.</p>
+
+    <button onclick="repeatWrong()">Nicht gekonnte erneut abfragen</button>
+  `;
+}
+
+function repeatWrong() {
+  learnList = [...wrongList];
+  wrongList = [];
+  learnIndex = 0;
   showLearnCard();
 }
 
