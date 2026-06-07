@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Nexora – Mathe24</title>
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  h1 {
+    margin-bottom: 20px;
+    color: #38bdf8;
+  }
+  button {
+    padding: 12px 20px;
+    margin: 10px;
+    background: #111;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  button:hover {
+    background: #222;
+  }
+  #area {
+    margin-top: 30px;
+    width: 90%;
+    max-width: 650px;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+  }
+  input {
+    padding: 8px;
+    background: #000;
+    border: 1px solid #555;
+    color: #fff;
+    border-radius: 6px;
+    width: 120px;
+  }
+  #timer {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #0f0;
+  }
+
+  /* Bruchdarstellung */
+  .frac {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.1;
+  }
+  .frac span {
+    display: block;
+    padding: 0 6px;
+  }
+  .frac .symbol {
+    border-top: 2px solid #fff;
+    margin-top: -6px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Mathe24 – Nexora</h1>
+
+<button onclick="openBasic()">Einfaches Rechnen</button>
+<button onclick="openRoot()">Wurzelrechnen</button>
+<button onclick="openFraction()">Brüche → Dezimal</button>
+
+<div id="area">Wähle einen Bereich.</div>
+
+<script>
+let timerInterval;
+let time = 0;
+
+function startTimer() {
+  clearInterval(timerInterval);
+  time = 0;
+  timerInterval = setInterval(() => {
+    time++;
+    document.getElementById("timer").innerText = "Zeit: " + time + "s";
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+/* -------------------------
+   BEREICH 1 – EINFACHES RECHNEN
+-------------------------- */
+
+function openBasic() {
+  document.getElementById("area").innerHTML = `
+    <h2>Einfaches Rechnen</h2>
+    <button onclick="startBasic()">Neue Aufgabe</button>
+    <div id="taskArea" style="margin-top:20px;"></div>
+    <div id="timer"></div>
+  `;
+}
+
+function startBasic() {
+  startTimer();
+
+  let a = Math.floor(Math.random()*50)+1;
+  let b = Math.floor(Math.random()*50)+1;
+
+  const ops = ["+","-","×","÷"];
+  let op = ops[Math.floor(Math.random()*ops.length)];
+
+  let result = 0;
+
+  if (op === "+") result = a + b;
+  if (op === "-") result = a - b;
+  if (op === "×") result = a * b;
+  if (op === "÷") {
+    b = Math.floor(Math.random()*9)+1;
+    a = b * (Math.floor(Math.random()*9)+1);
+    result = a / b;
+  }
+
+  document.getElementById("taskArea").innerHTML = `
+    <h3>${a} ${op} ${b} = ?</h3>
+    <input id="answer" type="number">
+    <button onclick="checkBasic(${result})">Prüfen</button>
+    <div id="result" style="margin-top:10px;"></div>
+  `;
+}
+
+function checkBasic(correct) {
+  let val = parseFloat(document.getElementById("answer").value);
+  let out = document.getElementById("result");
+
+  stopTimer();
+
+  if (val === correct) {
+    out.innerHTML = "<span style='color:#0f0;'>Richtig! Zeit: "+time+"s</span>";
+  } else {
+    out.innerHTML = "<span style='color:#f00;'>Falsch! Richtige Lösung: "+correct+"</span>";
+  }
+}
+
+/* -------------------------
+   BEREICH 2 – WURZELRECHNEN
+-------------------------- */
+
+function openRoot() {
+  document.getElementById("area").innerHTML = `
+    <h2>Wurzelrechnen</h2>
+    <button onclick="startRoot()">Neue Aufgabe</button>
+    <div id="taskArea" style="margin-top:20px;"></div>
+    <div id="timer"></div>
+  `;
+}
+
+function startRoot() {
+  startTimer();
+
+  const roots = [4,9,16,25,36,49,64,81,100,12,18,27,45,72];
+  let n = roots[Math.floor(Math.random()*roots.length)];
+
+  let correct = Math.sqrt(n);
+  correct = Math.round(correct * 100) / 100;
+
+  document.getElementById("taskArea").innerHTML = `
+    <h3>√${n} = ? (2 Nachkommastellen)</h3>
+    <input id="answer" type="number" step="0.01">
+    <button onclick="checkRoot(${correct})">Prüfen</button>
+    <div id="result" style="margin-top:10px;"></div>
+  `;
+}
+
+function checkRoot(correct) {
+  let val = parseFloat(document.getElementById("answer").value);
+  let out = document.getElementById("result");
+
+  stopTimer();
+
+  if (Math.abs(val - correct) < 0.01) {
+    out.innerHTML = "<span style='color:#0f0;'>Richtig! Zeit: "+time+"s</span>";
+  } else {
+    out.innerHTML = "<span style='color:#f00;'>Falsch! Richtige Lösung: "+correct+"</span>";
+  }
+}
+
+/* -------------------------
+   BEREICH 3 – BRÜCHE → DEZIMAL
+-------------------------- */
+
+function openFraction() {
+  document.getElementById("area").innerHTML = `
+    <h2>Brüche → Dezimal</h2>
+    <button onclick="startFraction()">Neue Aufgabe</button>
+    <div id="taskArea" style="margin-top:20px;"></div>
+    <div id="timer"></div>
+  `;
+}
+
+function startFraction() {
+  startTimer();
+
+  const fractions = [
+    [1,2],[1,3],[1,4],[3,4],[2,5],[3,5],[5,8],[7,10],[9,20]
+  ];
+
+  let f = fractions[Math.floor(Math.random()*fractions.length)];
+  let correct = f[0] / f[1];
+  correct = Math.round(correct * 1000) / 1000;
+
+  document.getElementById("taskArea").innerHTML = `
+    <h3>
+      <span class="frac">
+        <span>${f[0]}</span>
+        <span class="symbol"></span>
+        <span>${f[1]}</span>
+      </span>
+      = ? (Dezimal)
+    </h3>
+
+    <input id="answer" type="number" step="0.001">
+    <button onclick="checkFraction(${correct})">Prüfen</button>
+    <div id="result" style="margin-top:10px;"></div>
+  `;
+}
+
+function checkFraction(correct) {
+  let val = parseFloat(document.getElementById("answer").value);
+  let out = document.getElementById("result");
+
+  stopTimer();
+
+  if (Math.abs(val - correct) < 0.001) {
+    out.innerHTML = "<span style='color:#0f0;'>Richtig! Zeit: "+time+"s</span>";
+  } else {
+    out.innerHTML = "<span style='color:#f00;'>Falsch! Richtige Lösung: "+correct+"</span>";
+  }
+}
+</script>
+
+</body>
+</html>
