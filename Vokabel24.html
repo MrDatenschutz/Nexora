@@ -28,8 +28,12 @@
     cursor: pointer;
     font-size: 15px;
   }
-  button:hover {
+  button:hover:enabled {
     background: #222;
+  }
+  button:disabled {
+    opacity: 0.4;
+    cursor: default;
   }
   #area {
     margin-top: 30px;
@@ -72,6 +76,7 @@ let cards = [];          // alle Karten
 let learnList = [];      // aktuelle Lernliste
 let wrongList = [];      // falsch beantwortete Karten
 let learnIndex = 0;
+let solutionShown = false;
 
 /* -------------------------
    BEREICH 1 – KARTEIKARTEN ERSTELLEN
@@ -164,6 +169,8 @@ function showLearnCard() {
     return;
   }
 
+  solutionShown = false;
+
   let c = learnList[learnIndex];
 
   document.getElementById("area").innerHTML = `
@@ -174,22 +181,27 @@ function showLearnCard() {
       <div id="solution" style="margin-top:10px; color:#0f0;"></div>
     </div>
 
-    <button onclick="showSolution()">Zeigen</button>
-    <button onclick="markCorrect()">Richtig</button>
-    <button onclick="markWrong()">Falsch</button>
+    <button id="btnShow" onclick="showSolution()">Zeigen</button>
+    <button id="btnRight" onclick="markCorrect()" disabled>Richtig</button>
+    <button id="btnWrong" onclick="markWrong()" disabled>Falsch</button>
   `;
 }
 
 function showSolution() {
   document.getElementById("solution").innerText = learnList[learnIndex].back;
+  solutionShown = true;
+  document.getElementById("btnRight").disabled = false;
+  document.getElementById("btnWrong").disabled = false;
 }
 
 function markCorrect() {
+  if (!solutionShown) return;
   learnIndex++;
   showLearnCard();
 }
 
 function markWrong() {
+  if (!solutionShown) return;
   wrongList.push(learnList[learnIndex]);
   learnIndex++;
   showLearnCard();
