@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Nexora – Vokabel24</title>
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  h1 {
+    margin-bottom: 20px;
+    color: #38bdf8;
+  }
+  button {
+    padding: 10px 18px;
+    margin: 6px;
+    background: #111;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  button:hover {
+    background: #222;
+  }
+  #area {
+    margin-top: 30px;
+    width: 90%;
+    max-width: 650px;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+    background: #000;
+    border: 1px solid #555;
+    color: #fff;
+    border-radius: 6px;
+    margin-top: 5px;
+  }
+  .card {
+    background: #222;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Vokabel24 – Nexora</h1>
+
+<button onclick="openCreate()">Karteikarten erstellen</button>
+<button onclick="openLearn()">Lernen</button>
+<button onclick="openImport()">Importieren</button>
+
+<div id="area">Wähle eine Funktion.</div>
+
+<script>
+let cards = []; // alle Karteikarten
+let learnIndex = 0;
+
+/* -------------------------
+   BEREICH 1 – KARTEIKARTEN ERSTELLEN
+-------------------------- */
+
+function openCreate() {
+  document.getElementById("area").innerHTML = `
+    <h2>Karteikarten erstellen</h2>
+
+    <div class="card">
+      <label>Vorderseite:</label>
+      <textarea id="front"></textarea>
+
+      <label>Rückseite:</label>
+      <textarea id="back"></textarea>
+
+      <button onclick="addCard()">Karte hinzufügen</button>
+    </div>
+
+    <h3>Aktuelle Karten:</h3>
+    <div id="cardList"></div>
+
+    <button onclick="exportCards()">Speichern (TXT herunterladen)</button>
+  `;
+
+  updateCardList();
+}
+
+function addCard() {
+  let f = document.getElementById("front").value.trim();
+  let b = document.getElementById("back").value.trim();
+
+  if (f === "" || b === "") return;
+
+  cards.push({front: f, back: b});
+  document.getElementById("front").value = "";
+  document.getElementById("back").value = "";
+
+  updateCardList();
+}
+
+function updateCardList() {
+  let out = "";
+  cards.forEach((c, i) => {
+    out += `
+      <div class="card">
+        <b>${i+1}. ${c.front}</b><br>
+        <i>${c.back}</i>
+      </div>
+    `;
+  });
+  document.getElementById("cardList").innerHTML = out;
+}
+
+function exportCards() {
+  let text = cards.map(c => `${c.front}|${c.back}`).join("\n");
+
+  let blob = new Blob([text], {type: "text/plain"});
+  let url = URL.createObjectURL(blob);
+
+  let a = document.createElement("a");
+  a.href = url;
+  a.download = "vokabeln.txt";
+  a.click();
+}
+
+/* -------------------------
+   BEREICH 2 – LERNMODUS
+-------------------------- */
+
+function openLearn() {
+  if (cards.length === 0) {
+    document.getElementById("area").innerHTML = `
+      <h2>Lernen</h2>
+      <p>Keine Karten vorhanden. Bitte importieren oder erstellen.</p>
+    `;
+    return;
+  }
+
+  learnIndex = 0;
+  showLearnCard();
+}
+
+function showLearnCard() {
+  let c = cards[learnIndex];
+
+  document.getElementById("area").innerHTML = `
+    <h2>Lernen (${learnIndex+1}/${cards.length})</h2>
+
+    <div class="card">
+      <h3>${c.front}</h3>
+      <div id="solution" style="margin-top:10px; color:#0f0;"></div>
+    </div>
+
+    <button onclick="showSolution()">Zeigen</button>
+    <button onclick="nextCard()">Richtig</button>
+    <button onclick="nextCard()">Falsch</button>
+  `;
+}
+
+function showSolution() {
+  document.getElementById("solution").innerText = cards[learnIndex].back;
+}
+
+function nextCard() {
+  learnIndex++;
+  if (learnIndex >= cards.length) learnIndex = 0;
+  showLearnCard();
+}
+
+/* -------------------------
+   BEREICH 3 – IMPORTIEREN
+-------------------------- */
+
+function openImport() {
+  document.getElementById("area").innerHTML = `
+    <h2>Vokabeln importieren</h2>
+    <input type="file" id="fileInput">
+    <button onclick="importCards()">Import starten</button>
+  `;
+}
+
+function importCards() {
+  let file = document.getElementById("fileInput").files[0];
+  if (!file) return;
+
+  let reader = new FileReader();
+  reader.onload = function(e) {
+    let lines = e.target.result.split("\n");
+
+    cards = [];
+
+    lines.forEach(line => {
+      let parts = line.split("|");
+      if (parts.length === 2) {
+        cards.push({front: parts[0], back: parts[1]});
+      }
+    });
+
+    alert("Import erfolgreich! " + cards.length + " Karten geladen.");
+    openLearn();
+  };
+
+  reader.readAsText(file);
+}
+</script>
+
+</body>
+</html>
