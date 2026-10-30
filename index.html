@@ -1,767 +1,986 @@
 <!DOCTYPE html>
 
 <html lang="de">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nexora – Deine kompetente Suchmaschine</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --background: #0f172a;
-      --surface: #111e35;
-      --surface-light: #1e293b;
-      --accent: #38bdf8;
-      --accent-hover: #7dd3fc;
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --border: rgba(148, 163, 184, 0.15);
-    }
+<title>Nexora – Deine kompetente Suchmaschine</title>
 
-    * {
-      box-sizing: border-box;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* =================================
+   GRUNDEINSTELLUNGEN
+================================= */
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
+:root {
+    --background: #0f172a;
+    --surface: #111e35;
+    --surface-light: #1e293b;
+    --accent: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: rgba(148, 163, 184, 0.15);
+}
 
-      background:
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background-color: #0f172a !important;
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: 'Segoe UI', sans-serif;
+
+    background-color: #0f172a !important;
+
+    background-image:
         radial-gradient(
-          ellipse at 50% 0%,
-          rgba(14, 165, 233, 0.09),
-          transparent 55%
-        ),
-        var(--background);
+            ellipse at 50% 0%,
+            rgba(14, 165, 233, 0.09),
+            transparent 55%
+        );
 
-      color: var(--text);
+    background-repeat: no-repeat;
+    background-size: 100% 700px;
+
+    color: #e5e7eb;
+
+}
+
+
+/* =================================
+   NAVIGATION
+================================= */
+
+.top-right-links {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    padding: 15px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(15, 23, 42, 0.95);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter: blur(12px);
+
+}
+
+.top-right-links a {
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 0.86rem;
+
+    font-weight: 600;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    border: 1px solid transparent;
+
+    transition: 0.2s ease;
+
+}
+
+.top-right-links a:hover {
+
+    color: var(--accent);
+
+    background: rgba(56, 189, 248, 0.07);
+
+    border-color: rgba(56, 189, 248, 0.16);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =================================
+   HAUPTBEREICH
+================================= */
+
+.main-container {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 65px 20px 60px;
+
+    text-align: center;
+
+}
+
+
+/* =================================
+   LOGO UND TITEL
+================================= */
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 10px;
+
+}
+
+.header img {
+
+    height: 70px;
+
+    width: auto;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 0 10px rgba(56, 189, 248, 0.15)
+        );
+
+}
+
+.header h1 {
+
+    font-size: clamp(2.8rem, 7vw, 4.2rem);
+
+    margin: 0;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    color: var(--accent);
+
+    text-shadow:
+        0 0 20px rgba(56, 189, 248, 0.12);
+
+}
+
+
+/* =================================
+   BESCHREIBUNG
+================================= */
+
+.subtitle {
+
+    font-size: 1.1rem;
+
+    color: var(--muted);
+
+    margin-top: 12px;
+
+    margin-bottom: 10px;
+
+}
+
+.description {
+
+    font-size: 0.9rem;
+
+    color: #64748b;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* =================================
+   SUCHBEREICH
+================================= */
+
+#searchBox {
+
+    max-width: 620px;
+
+    margin: 0 auto;
+
+}
+
+.search-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    background: #020617;
+
+    border: 1px solid #334155;
+
+    border-radius: 15px;
+
+    padding: 7px 9px 7px 18px;
+
+    transition: 0.25s ease;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+
+}
+
+.search-wrapper:focus-within {
+
+    border-color: rgba(56, 189, 248, 0.75);
+
+    box-shadow:
+        0 0 0 3px rgba(56, 189, 248, 0.07),
+        0 10px 30px rgba(0, 0, 0, 0.2);
+
+}
+
+.search-icon {
+
+    font-size: 1.3rem;
+
+    color: var(--accent);
+
+    margin-right: 12px;
+
+}
+
+input[type="text"] {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 14px 5px;
+
+    font-size: 1rem;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+}
+
+input[type="text"]::placeholder {
+
+    color: #64748b;
+
+}
+
+
+/* =================================
+   SUCHBUTTON
+================================= */
+
+.search-button {
+
+    background: #0ea5e9;
+
+    color: #082f49;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 12px 19px;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+.search-button:hover {
+
+    background: var(--accent-hover);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 0 12px rgba(56, 189, 248, 0.15);
+
+}
+
+.search-button:active {
+
+    transform: scale(0.98);
+
+}
+
+
+/* =================================
+   SUCHHINWEIS
+================================= */
+
+.search-hint {
+
+    color: #64748b;
+
+    font-size: 0.85rem;
+
+    margin-top: 13px;
+
+}
+
+
+/* =================================
+   SUCHERGEBNISSE
+================================= */
+
+#results {
+
+    max-width: 620px;
+
+    margin: 35px auto 0;
+
+    text-align: left;
+
+}
+
+.results-heading {
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+
+    margin-bottom: 16px;
+
+}
+
+.result-item {
+
+    padding: 17px;
+
+    border-radius: 12px;
+
+    background: rgba(17, 30, 53, 0.95);
+
+    margin-bottom: 12px;
+
+    border: 1px solid var(--border);
+
+    transition: 0.2s ease;
+
+    animation: fadeIn 0.25s ease;
+
+}
+
+.result-item:hover {
+
+    transform: translateY(-2px);
+
+    border-color: rgba(56, 189, 248, 0.4);
+
+    background: #17263f;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
+
+}
+
+.result-item a {
+
+    color: var(--accent);
+
+    text-decoration: none;
+
+    font-size: 1.08rem;
+
+    font-weight: 700;
+
+}
+
+.result-item a:hover {
+
+    color: var(--accent-hover);
+
+}
+
+.result-desc {
+
+    font-size: 0.9rem;
+
+    color: var(--muted);
+
+    margin-top: 8px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =================================
+   STATUSMELDUNGEN
+================================= */
+
+.status-message {
+
+    text-align: center;
+
+    padding: 22px;
+
+    color: var(--muted);
+
+    background: rgba(17, 30, 53, 0.95);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+
+    margin-top: 70px;
+
+    padding: 22px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--border);
+
+    background: #0f172a;
+
+    color: #64748b;
+
+    font-size: 0.85rem;
+
+}
+
+footer span {
+
+    color: var(--accent);
+
+}
+
+
+/* =================================
+   ANIMATIONEN
+================================= */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(6px);
+
     }
 
-    /* NAVIGATION */
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =================================
+   MOBILE DESIGN
+================================= */
+
+@media (max-width: 650px) {
 
     .top-right-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
 
-      padding: 15px 15px;
+        gap: 4px;
 
-      border-bottom: 1px solid var(--border);
+        padding: 12px 8px;
 
-      background: rgba(15, 23, 42, 0.85);
-
-      backdrop-filter: blur(12px);
-
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
 
     .top-right-links a {
-      color: var(--muted);
-      text-decoration: none;
 
-      font-size: 0.86rem;
-      font-weight: 600;
+        font-size: 0.78rem;
 
-      padding: 9px 12px;
+        padding: 8px 9px;
 
-      border-radius: 9px;
-      border: 1px solid transparent;
-
-      transition: 0.2s ease;
     }
-
-    .top-right-links a:hover {
-      color: var(--accent);
-
-      background: rgba(56, 189, 248, 0.07);
-
-      border-color: rgba(56, 189, 248, 0.16);
-
-      transform: translateY(-1px);
-    }
-
-    /* HAUPTBEREICH */
 
     .main-container {
-      max-width: 1000px;
-      margin: 0 auto;
 
-      padding: 65px 20px 60px;
+        padding-top: 55px;
 
-      text-align: center;
     }
 
-    /* LOGO UND TITEL */
-
     .header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      gap: 15px;
+        gap: 10px;
 
-      margin-bottom: 10px;
     }
 
     .header img {
-      height: 70px;
-      width: auto;
 
-      object-fit: contain;
+        height: 55px;
 
-      filter: drop-shadow(
-        0 0 10px rgba(56, 189, 248, 0.15)
-      );
     }
 
     .header h1 {
-      font-size: clamp(2.8rem, 7vw, 4.2rem);
 
-      margin: 0;
+        font-size: 2.8rem;
 
-      font-weight: 800;
-      letter-spacing: -2px;
+        letter-spacing: -2px;
 
-      color: var(--accent);
-
-      text-shadow:
-        0 0 20px rgba(56, 189, 248, 0.12);
     }
 
-    /* BESCHREIBUNG */
-
     .subtitle {
-      font-size: 1.1rem;
 
-      color: var(--muted);
+        font-size: 1rem;
 
-      margin-top: 12px;
-      margin-bottom: 10px;
     }
 
     .description {
-      font-size: 0.9rem;
 
-      color: #64748b;
+        font-size: 0.85rem;
 
-      margin-bottom: 35px;
-    }
-
-    /* SUCHBEREICH */
-
-    #searchBox {
-      max-width: 620px;
-      margin: 0 auto;
     }
 
     .search-wrapper {
-      display: flex;
-      align-items: center;
 
-      background: rgba(2, 6, 23, 0.85);
+        padding-left: 12px;
 
-      border: 1px solid #334155;
-
-      border-radius: 15px;
-
-      padding: 7px 9px 7px 18px;
-
-      transition: 0.25s ease;
-
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.15);
     }
 
-    .search-wrapper:focus-within {
-      border-color: rgba(56, 189, 248, 0.75);
+    .search-button {
 
-      box-shadow:
-        0 0 0 3px rgba(56, 189, 248, 0.07),
-        0 10px 30px rgba(0, 0, 0, 0.2);
+        padding: 12px 14px;
+
+        font-size: 0.85rem;
+
     }
 
     .search-icon {
-      font-size: 1.3rem;
 
-      color: var(--accent);
+        margin-right: 7px;
 
-      margin-right: 12px;
     }
 
     input[type="text"] {
-      flex: 1;
-      min-width: 0;
 
-      padding: 14px 5px;
+        font-size: 0.9rem;
 
-      font-size: 1rem;
-
-      border: none;
-      outline: none;
-
-      background: transparent;
-
-      color: var(--text);
     }
-
-    input[type="text"]::placeholder {
-      color: #64748b;
-    }
-
-    /* SUCHBUTTON */
-
-    .search-button {
-      background: #0ea5e9;
-
-      color: #082f49;
-
-      border: none;
-      border-radius: 10px;
-
-      padding: 12px 19px;
-
-      font-size: 0.95rem;
-      font-weight: 700;
-
-      cursor: pointer;
-
-      transition: 0.2s ease;
-    }
-
-    .search-button:hover {
-      background: var(--accent-hover);
-
-      transform: translateY(-1px);
-
-      box-shadow:
-        0 0 12px rgba(56, 189, 248, 0.15);
-    }
-
-    .search-button:active {
-      transform: scale(0.98);
-    }
-
-    /* HINWEIS */
-
-    .search-hint {
-      color: #64748b;
-
-      font-size: 0.85rem;
-
-      margin-top: 13px;
-    }
-
-    /* SUCHERGEBNISSE */
-
-    #results {
-      max-width: 620px;
-
-      margin: 35px auto 0;
-
-      text-align: left;
-    }
-
-    .results-heading {
-      color: var(--muted);
-
-      font-size: 0.9rem;
-
-      margin-bottom: 16px;
-    }
-
-    .result-item {
-      padding: 17px;
-
-      border-radius: 12px;
-
-      background: rgba(17, 30, 53, 0.8);
-
-      margin-bottom: 12px;
-
-      border: 1px solid var(--border);
-
-      transition: 0.2s ease;
-
-      animation: fadeIn 0.25s ease;
-    }
-
-    .result-item:hover {
-      transform: translateY(-2px);
-
-      border-color: rgba(56, 189, 248, 0.4);
-
-      background: #17263f;
-
-      box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-
-    .result-item a {
-      color: var(--accent);
-
-      text-decoration: none;
-
-      font-size: 1.08rem;
-      font-weight: 700;
-    }
-
-    .result-item a:hover {
-      color: var(--accent-hover);
-    }
-
-    .result-desc {
-      font-size: 0.9rem;
-
-      color: var(--muted);
-
-      margin-top: 8px;
-
-      line-height: 1.6;
-    }
-
-    /* STATUSMELDUNGEN */
-
-    .status-message {
-      text-align: center;
-
-      padding: 22px;
-
-      color: var(--muted);
-
-      background: rgba(17, 30, 53, 0.6);
-
-      border: 1px solid var(--border);
-
-      border-radius: 12px;
-    }
-
-    /* FOOTER */
 
     footer {
-      margin-top: 70px;
 
-      padding: 22px 20px;
-
-      text-align: center;
-
-      border-top: 1px solid var(--border);
-
-      color: #64748b;
-
-      font-size: 0.85rem;
-    }
-
-    footer span {
-      color: var(--accent);
-    }
-
-    /* ANIMATIONEN */
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(6px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 650px) {
-
-      .top-right-links {
-        gap: 4px;
-        padding: 12px 8px;
-      }
-
-      .top-right-links a {
-        font-size: 0.78rem;
-        padding: 8px 9px;
-      }
-
-      .main-container {
-        padding-top: 55px;
-      }
-
-      .header {
-        gap: 10px;
-      }
-
-      .header img {
-        height: 55px;
-      }
-
-      .header h1 {
-        font-size: 2.8rem;
-        letter-spacing: -2px;
-      }
-
-      .subtitle {
-        font-size: 1rem;
-      }
-
-      .description {
-        font-size: 0.85rem;
-      }
-
-      .search-wrapper {
-        padding-left: 12px;
-      }
-
-      .search-button {
-        padding: 12px 14px;
-        font-size: 0.85rem;
-      }
-
-      .search-icon {
-        margin-right: 7px;
-      }
-
-      input[type="text"] {
-        font-size: 0.9rem;
-      }
-
-      footer {
         margin-top: 55px;
-      }
+
     }
 
-  </style>
+}
+
+</style>
 
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+<!-- =================================
+     NAVIGATION
+================================= -->
 
-  <nav class="top-right-links">
+<nav class="top-right-links">
 
 ```
 <a href="https://mrdatenschutz.github.io/Nexora/ank%C3%BCndigung.html">
-  Announcements
+    Announcements
 </a>
 
 <a href="ueber-nexora.html">
-  Über Nexora
+    Über Nexora
 </a>
 
 <a href="kontakt.html">
-  Kontakt
+    Kontakt
 </a>
 
 <a href="Tools.html">
-  Nexora Tools
+    Nexora Tools
 </a>
 
 <a href="https://mrdatenschutz.github.io/Nexora/Nexora_Games.html">
-  Nexora Games
+    Nexora Games
 </a>
 
 <a href="https://mrdatenschutz.github.io/Nexora/quiz.html">
-  Monthly Quiz
+    Monthly Quiz
 </a>
 
 <a href="https://mrdatenschutz.github.io/Nexora/Programmier_Experimente.html">
-  Coding Experimente
+    Coding Experimente
 </a>
 
 <a href="https://mrdatenschutz.github.io/Nexora/Lernen.html">
-  Lernen
+    Lernen
 </a>
 ```
 
-  </nav>
+</nav>
 
-  <!-- HAUPTBEREICH -->
+<!-- =================================
+     HAUPTBEREICH
+================================= -->
 
-  <main class="main-container">
+<main class="main-container">
 
 ```
+<!-- LOGO -->
+
 <div class="header">
 
-  <img src="nexora-logo.png" alt="Nexora Logo">
+    <img src="nexora-logo.png" alt="Nexora Logo">
 
-  <h1>Nexora</h1>
+    <h1>Nexora</h1>
 
 </div>
 
+
 <p class="subtitle">
-  Die Suchmaschine für deine Inhalte.
+    Die Suchmaschine für deine Inhalte.
 </p>
+
 
 <p class="description">
-  Entdecke Inhalte, Tools, Experimente und vieles mehr.
+    Entdecke Inhalte, Tools, Experimente und vieles mehr.
 </p>
 
 
-<!-- SUCHFELD -->
+
+<!-- =================================
+     SUCHFELD
+================================= -->
 
 <div id="searchBox">
 
-  <form class="search-wrapper" id="searchForm">
+    <form class="search-wrapper" id="searchForm">
 
-    <span class="search-icon" aria-hidden="true">⌕</span>
+        <span class="search-icon" aria-hidden="true">⌕</span>
 
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Wonach suchst du?"
-      autocomplete="off"
-      aria-label="Suchbegriff"
-    >
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Wonach suchst du?"
+            autocomplete="off"
+            aria-label="Suchbegriff"
+        >
 
-    <button type="submit" class="search-button">
-      Suchen
-    </button>
+        <button type="submit" class="search-button">
+            Suchen
+        </button>
 
-  </form>
+    </form>
 
-  <p class="search-hint">
-    Finde schnell die Inhalte, die du suchst.
-  </p>
+
+    <p class="search-hint">
+        Finde schnell die Inhalte, die du suchst.
+    </p>
 
 </div>
 
 
-<!-- SUCHERGEBNISSE -->
+
+<!-- =================================
+     SUCHERGEBNISSE
+================================= -->
 
 <div id="results" aria-live="polite"></div>
 ```
 
-  </main>
+</main>
 
-  <!-- FOOTER -->
+<!-- =================================
+     FOOTER
+================================= -->
 
-  <footer>
+<footer>
 
 ```
 <p>
-  © <span>Nexora</span> – Deine kompetente Suchmaschine.
+    © <span>Nexora</span> – Deine kompetente Suchmaschine.
 </p>
 ```
 
-  </footer>
+</footer>
 
-  <!-- JAVASCRIPT -->
+<!-- =================================
+     JAVASCRIPT
+================================= -->
 
-  <script>
+<script>
 
-    document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-      let pages = [];
-      let loaded = false;
+    let pages = [];
+    let loaded = false;
 
-      const input = document.getElementById("searchInput");
-      const resultsDiv = document.getElementById("results");
-      const searchForm = document.getElementById("searchForm");
+    const input = document.getElementById("searchInput");
+
+    const resultsDiv = document.getElementById("results");
+
+    const searchForm = document.getElementById("searchForm");
 
 
-      // SEITENDATEN LADEN
+    /* SEITENDATEN LADEN */
 
-      fetch("pages.txt?nocache=" + Date.now())
+    fetch("pages.txt?nocache=" + Date.now())
 
         .then(response => {
 
-          if (!response.ok) {
-            throw new Error("Seitendaten konnten nicht geladen werden.");
-          }
+            if (!response.ok) {
 
-          return response.text();
+                throw new Error(
+                    "Seitendaten konnten nicht geladen werden."
+                );
+
+            }
+
+            return response.text();
 
         })
 
         .then(text => {
 
-          const lines = text
-            .split(/\r?\n/)
-            .map(line => line.trim())
-            .filter(line => line.length > 0);
+            const lines = text
+                .split(/\r?\n/)
+                .map(line => line.trim())
+                .filter(line => line.length > 0);
 
-          pages = lines.map(line => {
 
-            const parts = line.split("|");
+            pages = lines.map(line => {
 
-            return {
-              title: parts[0] || "",
-              url: parts[1] || "",
-              desc: parts[2] || ""
-            };
+                const parts = line.split("|");
 
-          });
+                return {
 
-          loaded = true;
+                    title: parts[0] || "",
 
-          // Falls bereits ein Suchbegriff eingegeben wurde
-          if (input.value.trim() !== "") {
-            search();
-          }
+                    url: parts[1] || "",
+
+                    desc: parts[2] || ""
+
+                };
+
+            });
+
+
+            loaded = true;
+
+
+            if (input.value.trim() !== "") {
+
+                search();
+
+            }
 
         })
 
         .catch(error => {
 
-          console.error(error);
+            console.error(error);
 
-          resultsDiv.innerHTML = "";
+            resultsDiv.innerHTML = "";
 
-          const message = document.createElement("div");
+            const message = document.createElement("div");
 
-          message.className = "status-message";
+            message.className = "status-message";
 
-          message.textContent =
-            "Die Suchdaten konnten leider nicht geladen werden.";
+            message.textContent =
+                "Die Suchdaten konnten leider nicht geladen werden.";
 
-          resultsDiv.appendChild(message);
+            resultsDiv.appendChild(message);
 
         });
 
 
-      // SUCHFUNKTION
 
-      function search() {
+    /* SUCHFUNKTION */
+
+    function search() {
 
         const query = input.value.toLowerCase().trim();
 
         resultsDiv.innerHTML = "";
 
+
         if (!loaded) {
 
-          resultsDiv.textContent = "Daten werden geladen...";
+            resultsDiv.textContent = "Daten werden geladen...";
 
-          return;
+            return;
 
         }
 
+
         if (query === "") {
-          return;
+
+            return;
+
         }
 
 
         const filtered = pages.filter(page =>
 
-          page.title.toLowerCase().includes(query) ||
-          page.desc.toLowerCase().includes(query)
+            page.title.toLowerCase().includes(query) ||
+
+            page.desc.toLowerCase().includes(query)
 
         );
 
 
-        // KEINE TREFFER
+
+        /* KEINE TREFFER */
 
         if (filtered.length === 0) {
 
-          const message = document.createElement("div");
+            const message = document.createElement("div");
 
-          message.className = "status-message";
+            message.className = "status-message";
 
-          message.textContent =
-            "Keine Treffer gefunden. Versuche einen anderen Suchbegriff.";
+            message.textContent =
+                "Keine Treffer gefunden. Versuche einen anderen Suchbegriff.";
 
-          resultsDiv.appendChild(message);
+            resultsDiv.appendChild(message);
 
-          return;
+            return;
 
         }
 
 
-        // ERGEBNISÜBERSCHRIFT
+
+        /* ERGEBNISÜBERSCHRIFT */
 
         const heading = document.createElement("div");
 
         heading.className = "results-heading";
 
         heading.textContent =
-          filtered.length + " Suchergebnis(se) gefunden";
+            filtered.length + " Suchergebnis(se) gefunden";
 
         resultsDiv.appendChild(heading);
 
 
-        // ERGEBNISSE ANZEIGEN
+
+        /* ERGEBNISSE ANZEIGEN */
 
         filtered.forEach(page => {
 
-          let url;
+            let url;
 
-          try {
+            try {
 
-            url = new URL(page.url, window.location.href);
+                url = new URL(page.url, window.location.href);
 
-            if (!["http:", "https:"].includes(url.protocol)) {
-              return;
+                if (!["http:", "https:"].includes(url.protocol)) {
+
+                    return;
+
+                }
+
+            } catch {
+
+                return;
+
             }
 
-          } catch {
 
-            return;
+            const item = document.createElement("div");
 
-          }
-
-
-          const item = document.createElement("div");
-
-          item.className = "result-item";
+            item.className = "result-item";
 
 
-          const link = document.createElement("a");
+            const link = document.createElement("a");
 
-          link.href = url.href;
+            link.href = url.href;
 
-          link.textContent = page.title;
+            link.textContent = page.title;
 
-          link.target = "_blank";
+            link.target = "_blank";
 
-          link.rel = "noopener noreferrer";
-
-
-          const description = document.createElement("div");
-
-          description.className = "result-desc";
-
-          description.textContent = page.desc;
+            link.rel = "noopener noreferrer";
 
 
-          item.appendChild(link);
+            const description = document.createElement("div");
 
-          item.appendChild(description);
+            description.className = "result-desc";
 
-          resultsDiv.appendChild(item);
+            description.textContent = page.desc;
+
+
+            item.appendChild(link);
+
+            item.appendChild(description);
+
+
+            resultsDiv.appendChild(item);
 
         });
 
-      }
+    }
 
 
-      // LIVE-SUCHE
 
-      input.addEventListener("input", search);
+    /* LIVE-SUCHE */
+
+    input.addEventListener("input", search);
 
 
-      // SUCHBUTTON
 
-      searchForm.addEventListener("submit", event => {
+    /* SUCHBUTTON */
+
+    searchForm.addEventListener("submit", event => {
 
         event.preventDefault();
 
         search();
 
-      });
-
     });
 
-  </script>
+
+});
+
+</script>
 
 </body>
 </html>
