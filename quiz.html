@@ -1,1 +1,629 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Quiz</title><style>body{font-family:Arial;background:linear-gradient(135deg,#6a11cb,#2575fc);padding:40px;display:flex;justify-content:center;}.card{background:white;width:520px;padding:25px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,0.3);animation:fadeIn 0.5s ease;}@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}.option{background:#f0f0f0;padding:12px;border-radius:10px;margin:10px 0;cursor:pointer;border:2px solid transparent;transition:0.2s;}.option:hover{background:#e0e0e0;}.correct{background:#c8f7c5!important;border-color:#2ecc71;}.wrong{background:#f7c5c5!important;border-color:#e74c3c;}#nextBtn{margin-top:20px;padding:12px;width:100%;background:#3498db;color:white;border:none;border-radius:10px;font-size:16px;cursor:pointer;display:none;}#nextBtn:hover{background:#217dbb;}</style></head><body><div class='card'><h2 id='question'></h2><div id='options'></div><div id='explanation'></div><button id='nextBtn'>Nächste Frage</button></div><script>const quiz=[{"question":"Welche Stadt ist die Hauptstadt von Kanada?","options":["Toronto","Ottawa","Vancouver"],"correct":1,"explanation":""},{"question":"Welches ist das größte Meerestier?","options":["Weißer Hai","Blauwal","Orca"],"correct":1,"explanation":""},{"question":"Wie viele Planeten hat unser Sonnensystem?","options":["10","9","8"],"correct":2,"explanation":""},{"question":"Wer schrieb \"Faust\"?","options":["Johann Wolfgang von Goethe","Friedrich Schiller","Thomas Mann"],"correct":0,"explanation":""},{"question":"Welches Land hat die meisten Einwohner?","options":["USA","Indien","China"],"correct":1,"explanation":""},{"question":"Wie heißt das längste Fließgewässer der Welt?","options":["Amazonas","Nil","Mississippi"],"correct":0,"explanation":""},{"question":"Welche Farbe hat Chlor?","options":["Rot","Gelbgrün","Blau"],"correct":1,"explanation":""},{"question":"Wer erfand das Telefon?","options":["Alexander Graham Bell","Nikola Tesla","Thomas Edison"],"correct":0,"explanation":""},{"question":"Wie viele Bundesländer hat Deutschland?","options":["14","15","16"],"correct":2,"explanation":""},{"question":"Welche Stadt nennt man \"Big Apple\"?","options":["New York City","Los Angeles","Chicago"],"correct":0,"explanation":""},{"question":"Welches Tier legt Eier?","options":["Krokodil","Delfin","Katze"],"correct":0,"explanation":""},{"question":"Wie heißt der höchste Berg der Erde?","options":["K2","Kangchendzönga","Mount Everest"],"correct":2,"explanation":""},{"question":"Welches Gas atmen wir hauptsächlich ein?","options":["Sauerstoff","Stickstoff","Kohlendioxid"],"correct":1,"explanation":""},{"question":"Wer malte \"Das Sternennacht\"?","options":["Claude Monet","Vincent van Gogh","Edvard Munch"],"correct":1,"explanation":""},{"question":"Welche Währung hat Japan?","options":["Won","Yen","Yuan"],"correct":1,"explanation":""},{"question":"Wie viele Zähne hat ein Erwachsener normalerweise?","options":["32","28","30"],"correct":0,"explanation":""},{"question":"Welche Sprache hat weltweit die meisten Muttersprachler?","options":["Englisch","Mandarin‑Chinesisch","Spanisch"],"correct":1,"explanation":""},{"question":"Wie heißt das größte Land der Erde?","options":["USA","Kanada","Russland"],"correct":2,"explanation":""},{"question":"Wer war der erste Mensch auf dem Mond?","options":["Buzz Aldrin","Neil Armstrong","Yuri Gagarin"],"correct":1,"explanation":""},{"question":"Welche Stadt liegt am Bosporus?","options":["Ankara","Istanbul","Izmir"],"correct":1,"explanation":""},{"question":"Wie heißt der längste Fluss Europas?","options":["Rhein","Donau","Wolga"],"correct":2,"explanation":""},{"question":"Welche Form hat die Erde?","options":["Perfekte Kugel","Ellipsoid","Würfel"],"correct":1,"explanation":""},{"question":"Wie nennt man die Wissenschaft der Karten?","options":["Kartografie","Geologie","Topografie"],"correct":0,"explanation":""},{"question":"Wer komponierte die „9. Sinfonie“?","options":["Beethoven","Mozart","Bach"],"correct":0,"explanation":""},{"question":"Welche ist die kleinste Einheit des Lebens?","options":["Atom","Zelle","Molekül"],"correct":1,"explanation":""},{"question":"Welches Land ist für die Pyramiden bekannt?","options":["Mexiko","Ägypten","Indien"],"correct":1,"explanation":""},{"question":"Wie heißt der größte Ozean?","options":["Atlantik","Indischer Ozean","Pazifik"],"correct":2,"explanation":""},{"question":"Welche Sprache spricht man in Brasilien?","options":["Spanisch","Brasilianisch","Portugiesisch"],"correct":2,"explanation":""},{"question":"Wie viele Spieler stehen beim Fußball pro Team auf dem Platz?","options":["9","10","11"],"correct":2,"explanation":""},{"question":"Welches Metall leitet Strom am besten?","options":["Kupfer","Silber","Gold"],"correct":1,"explanation":""},{"question":"Wer war Albert Einstein?","options":["Musiker","Physiker","Maler"],"correct":1,"explanation":""},{"question":"Welche Stadt ist die Hauptstadt von Italien?","options":["Neapel","Mailand","Rom"],"correct":2,"explanation":""},{"question":"Wie heißt der größte Kontinent?","options":["Afrika","Asien","Europa"],"correct":1,"explanation":""},{"question":"Welche Farbe hat die Sonne?","options":["Weiß","Gelb","Orange"],"correct":0,"explanation":""},{"question":"Wie nennt man einen jungen Hund?","options":["Kalb","Fohlen","Welpe"],"correct":2,"explanation":""},{"question":"Welche Einheit misst elektrische Spannung?","options":["Volt","Ampere","Watt","Ohm"],"correct":0,"explanation":""},{"question":"Wer schrieb \"Harry Potter\"?","options":["J. R. R. Tolkien","J. K. Rowling","Stephen King"],"correct":1,"explanation":""},{"question":"Welche Stadt liegt an der Themse?","options":["London","Manchester","Birmingham"],"correct":0,"explanation":""},{"question":"Wie heißt der größte Planet im Sonnensystem?","options":["Saturn","Jupiter","Uranus"],"correct":1,"explanation":""},{"question":"Welche Farbe hat ein Smaragd?","options":["Blau","Grün","Rot"],"correct":1,"explanation":""},{"question":"Wie nennt man einen Wissenschaftler, der Fossilien untersucht?","options":["Paläontologe","Archäologe","Biologe"],"correct":0,"explanation":""},{"question":"Welche Stadt ist die Hauptstadt von Spanien?","options":["Valencia","Barcelona","Madrid"],"correct":2,"explanation":""},{"question":"Wie heißt der schnellste Landläufer?","options":["Tiger","Löwe","Gepard","Gephard"],"correct":2,"explanation":""},{"question":"Welche Sprache spricht man in Österreich?","options":["Deutsch","Französisch","Italienisch"],"correct":0,"explanation":""},{"question":"Wie nennt man die Lehre vom Wetter?","options":["Meteorologie","Klimatologie","Astronomie"],"correct":0,"explanation":""},{"question":"Welche Form hat ein Stoppschild?","options":["Dreieck","Achteck","Kreis"],"correct":1,"explanation":""},{"question":"Wie heißt der längste Knochen im menschlichen Körper?","options":["Oberschenkelknochen","Schienbein","Oberarmknochen"],"correct":0,"explanation":""},{"question":"Welche Stadt ist die Hauptstadt von Schweden?","options":["Helsinki","Oslo","Stockholm"],"correct":2,"explanation":""},{"question":"Welche Farbe hat Blut im Körper?","options":["Blau","Rot","Gelb"],"correct":1,"explanation":""},{"question":"Wie heißt der größte See Afrikas?","options":["Tanganjikasee","Victoriasee","Malawisee"],"correct":1,"explanation":""},{"question":"Wie nennt man die Wiederholung desselben Anfangslauts in mehreren Wörtern?","options":["Alliterazion","Aliteration","Alliteration"],"correct":2,"explanation":""},{"question":"Welcher Begriff bezeichnet die Umstellung der üblichen Wortstellung im Satz?","options":["Hyperbathon","Hyperbatom","Hyperbaton"],"correct":2,"explanation":""},{"question":"Wie nennt man den sprachlichen Ausdruck, bei dem ein Wort bildhaft für etwas anderes steht?","options":["Methaper","Metapher","Methapher","Oxymoron"],"correct":1,"explanation":""}];let current=0;let score=0;let userAnswers=[];const qEl=document.getElementById('question');const oEl=document.getElementById('options');const eEl=document.getElementById('explanation');const nextBtn=document.getElementById('nextBtn');function loadQuestion(){const q=quiz[current];qEl.textContent=q.question;oEl.innerHTML='';eEl.innerHTML='';nextBtn.style.display='none';q.options.forEach(function(text,index){const btn=document.createElement('div');btn.className='option';btn.textContent=text;btn.onclick=function(){document.querySelectorAll('.option').forEach(function(o){o.style.pointerEvents='none'});userAnswers.push(index);if(index===q.correct){btn.classList.add('correct');score++;}else{btn.classList.add('wrong');}eEl.innerHTML=q.explanation;nextBtn.style.display='block';};oEl.appendChild(btn);});}nextBtn.onclick=function(){current++;if(current<quiz.length)loadQuestion();else showResults();};function showResults(){qEl.textContent='Auswertung';oEl.innerHTML='';eEl.innerHTML='';quiz.forEach(function(q,i){const div=document.createElement('div');div.innerHTML='<b>'+q.question+'</b><br>Deine Antwort: '+(q.options[userAnswers[i]]||'Keine')+'<br>Richtige Antwort: <b>'+q.options[q.correct]+'</b><br><br>';oEl.appendChild(div);});}loadQuestion();</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Quiz</title>
+
+<style>
+
+/* ==============================
+   NEXORA QUIZ DESIGN
+============================== */
+
+:root{
+
+    --background:#0f172a;
+    --surface:#111e35;
+    --surface-light:#17263f;
+
+    --accent:#38bdf8;
+    --accent-hover:#7dd3fc;
+
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+
+    --border:
+        rgba(148,163,184,0.15);
+
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+
+    min-height:100vh;
+
+    font-family:'Segoe UI',
+                sans-serif;
+
+    background:#0f172a;
+
+    background-image:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(
+                14,
+                165,
+                233,
+                0.09
+            ),
+            transparent 55%
+        );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    color:var(--text);
+
+}
+
+.card{
+
+    width:720px;
+
+    max-width:95%;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    background:
+        rgba(
+            17,
+            30,
+            53,
+            0.95
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
+
+    animation:
+        fadeIn
+        .4s
+        ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0);
+    }
+
+}
+
+#question{
+
+    color:var(--accent);
+
+    margin-top:0;
+
+    line-height:1.5;
+
+}
+
+.option{
+
+    background:
+        rgba(
+            17,
+            30,
+            53,
+            0.95
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    padding:14px;
+
+    border-radius:12px;
+
+    margin:10px 0;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+
+}
+  .option:hover{
+
+    transform:translateY(-2px);
+
+    background:#17263f;
+
+    border-color:
+        rgba(
+            56,
+            189,
+            248,
+            0.4
+        );
+
+}
+
+.correct{
+
+    background:
+        rgba(
+            34,
+            197,
+            94,
+            .25
+        ) !important;
+
+    border-color:
+        rgba(
+            34,
+            197,
+            94,
+            .7
+        ) !important;
+
+}
+
+.wrong{
+
+    background:
+        rgba(
+            239,
+            68,
+            68,
+            .25
+        ) !important;
+
+    border-color:
+        rgba(
+            239,
+            68,
+            68,
+            .7
+        ) !important;
+
+}
+
+#nextBtn{
+
+    margin-top:20px;
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0ea5e9;
+
+    color:#082f49;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    display:none;
+
+    transition:.2s ease;
+
+}
+
+#nextBtn:hover{
+
+    background:#7dd3fc;
+
+}
+
+#explanation{
+
+    margin-top:15px;
+
+    color:#94a3b8;
+
+}
+
+/* ==========
+   AUSWERTUNG
+=========== */
+
+.result-card{
+
+    padding:16px;
+
+    margin-bottom:15px;
+
+    border-radius:12px;
+
+}
+
+.result-correct{
+
+    background:
+        rgba(
+            34,
+            197,
+            94,
+            .15
+        );
+
+    border:
+        1px solid
+        rgba(
+            34,
+            197,
+            94,
+            .5
+        );
+
+}
+
+.result-wrong{
+
+    background:
+        rgba(
+            239,
+            68,
+            68,
+            .15
+        );
+
+    border:
+        1px solid
+        rgba(
+            239,
+            68,
+            68,
+            .5
+        );
+
+}
+
+.result-title{
+
+    font-weight:700;
+
+    font-size:1.1rem;
+
+    margin-bottom:10px;
+
+}
+
+.result-question{
+
+    color:#e5e7eb;
+
+    margin-bottom:10px;
+
+}
+
+.result-answer{
+
+    color:#94a3b8;
+}
+
+.result-correct-answer{
+
+    color:#38bdf8;
+
+    margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2 id="question"></h2>
+
+<div id="options"></div>
+
+<div id="explanation"></div>
+
+<button id="nextBtn">
+    Nächste Frage
+</button>
+
+</div>
+
+<script>
+
+const quiz = [
+
+/* HIER BEGINNT DEIN
+   KOMPLETTES QUIZ ARRAY */
+  ];
+
+let current = 0;
+let score = 0;
+
+let userAnswers = [];
+
+const qEl =
+    document.getElementById('question');
+
+const oEl =
+    document.getElementById('options');
+
+const eEl =
+    document.getElementById('explanation');
+
+const nextBtn =
+    document.getElementById('nextBtn');
+
+/* ==========================
+   FRAGE LADEN
+========================== */
+
+function loadQuestion() {
+
+    const q = quiz[current];
+
+    qEl.textContent =
+        q.question;
+
+    oEl.innerHTML = '';
+
+    eEl.innerHTML = '';
+
+    nextBtn.style.display =
+        'none';
+
+    q.options.forEach(
+        function(text,index){
+
+            const btn =
+                document.createElement('div');
+
+            btn.className =
+                'option';
+
+            btn.textContent =
+                text;
+
+            btn.onclick =
+                function(){
+
+                document
+                .querySelectorAll(
+                    '.option'
+                )
+                .forEach(
+                    function(o){
+
+                    o.style.pointerEvents =
+                        'none';
+
+                });
+
+                userAnswers.push(index);
+
+                if(
+                    index === q.correct
+                ){
+
+                    btn.classList.add(
+                        'correct'
+                    );
+
+                    score++;
+
+                }else{
+
+                    btn.classList.add(
+                        'wrong'
+                    );
+
+                }
+
+                nextBtn.style.display =
+                    'block';
+
+            };
+
+            oEl.appendChild(btn);
+
+    });
+
+}
+
+/* ==========================
+   NÄCHSTE FRAGE
+========================== */
+
+nextBtn.onclick =
+    function(){
+
+    current++;
+
+    if(
+        current < quiz.length
+    ){
+        loadQuestion();
+    }
+    else{
+        showResults();
+    }
+
+};
+  /* ==========================
+   AUSWERTUNG
+========================== */
+
+function showResults() {
+
+    const percent =
+        (
+            score /
+            quiz.length *
+            100
+        ).toFixed(1);
+
+    qEl.innerHTML = `
+
+        🎯 Ergebnis
+
+        <div style="
+            margin-top:20px;
+            font-size:2.2rem;
+            color:#38bdf8;
+        ">
+            ${score} / ${quiz.length}
+        </div>
+
+        <div style="
+            color:#94a3b8;
+            margin-top:8px;
+        ">
+            ${percent}% richtig
+        </div>
+
+    `;
+
+    oEl.innerHTML = '';
+    eEl.innerHTML = '';
+
+    nextBtn.style.display =
+        'none';
+
+    quiz.forEach(
+        function(q,i){
+
+        const correct =
+            userAnswers[i]
+            ===
+            q.correct;
+
+        const card =
+            document.createElement(
+                'div'
+            );
+
+        card.className =
+            correct
+            ? 'result-card result-correct'
+            : 'result-card result-wrong';
+
+        card.innerHTML = `
+
+            <div
+                class="result-title"
+                style="
+                  color:${
+                    correct
+                    ? '#22c55e'
+                    : '#ef4444'
+                  };
+                "
+            >
+
+                ${
+                    correct
+                    ? '✅ Richtig'
+                    : '❌ Falsch'
+                }
+
+            </div>
+
+            <div
+                class="result-question"
+            >
+                ${q.question}
+            </div>
+
+            <div
+                class="result-answer"
+            >
+                <strong>
+                Deine Antwort:
+                </strong>
+                <br>
+
+                ${
+                    q.options[
+                        userAnswers[i]
+                    ]
+                    || 'Keine Antwort'
+                }
+
+            </div>
+
+            ${
+              !correct
+              ?
+              `
+              <div
+              class="
+                result-correct-answer
+              ">
+                <strong>
+                Richtige Antwort:
+                </strong>
+                <br>
+
+                ${
+                    q.options[
+                        q.correct
+                    ]
+                }
+              </div>
+              `
+              :
+              ''
+            }
+
+        `;
+
+        oEl.appendChild(card);
+
+    });
+
+}
+
+/* ==========================
+   QUIZ STARTEN
+========================== */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
