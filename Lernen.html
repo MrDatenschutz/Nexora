@@ -1,101 +1,341 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Nexora Lernen</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      text-align: center;
-      padding: 40px;
+<title>Nexora Lernen</title>
+
+<style>
+
+/* =================================
+   GRUNDEINSTELLUNGEN
+================================= */
+
+:root {
+    --background: #0f172a;
+    --surface: #111e35;
+    --surface-light: #1e293b;
+    --accent: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: rgba(148, 163, 184, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background-color: #0f172a;
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: 'Segoe UI', sans-serif;
+
+    background-color: #0f172a;
+
+    background-image:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(14, 165, 233, 0.09),
+            transparent 55%
+        );
+
+    background-repeat: no-repeat;
+    background-size: 100% 700px;
+
+    color: var(--text);
+}
+
+/* =================================
+   NAVIGATION
+================================= */
+
+.top-right-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(15, 23, 42, 0.95);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter: blur(12px);
+}
+
+.top-right-links a {
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 0.86rem;
+    font-weight: 600;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    transition: 0.2s ease;
+}
+
+.top-right-links a:hover {
+    color: var(--accent);
+
+    background: rgba(56, 189, 248, 0.07);
+
+    transform: translateY(-1px);
+}
+
+/* =================================
+   HAUPTBEREICH
+================================= */
+
+.main-container {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    padding: 65px 20px 60px;
+
+    text-align: center;
+}
+
+/* =================================
+   TITEL
+================================= */
+
+h1 {
+    font-size: clamp(2.8rem, 7vw, 4.2rem);
+
+    margin: 0;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    color: var(--accent);
+
+    text-shadow:
+        0 0 20px rgba(56, 189, 248, 0.12);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+
+    color: var(--muted);
+
+    margin-top: 12px;
+    margin-bottom: 40px;
+}
+
+/* =================================
+   LERNTOOLS
+================================= */
+
+.learning-container {
+    max-width: 700px;
+    margin: 0 auto;
+
+    text-align: left;
+}
+
+.learning-item {
+    padding: 17px;
+
+    border-radius: 12px;
+
+    background: rgba(17, 30, 53, 0.95);
+
+    margin-bottom: 12px;
+
+    border: 1px solid var(--border);
+
+    transition: 0.2s ease;
+}
+
+.learning-item:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(56, 189, 248, 0.4);
+
+    background: #17263f;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.learning-item a {
+    color: var(--accent);
+
+    text-decoration: none;
+
+    font-size: 1.08rem;
+
+    font-weight: 700;
+}
+
+.learning-item a:hover {
+    color: var(--accent-hover);
+}
+
+.learning-desc {
+    font-size: 0.9rem;
+
+    color: var(--muted);
+
+    margin-top: 8px;
+
+    line-height: 1.6;
+}
+
+/* =================================
+   BUTTON
+================================= */
+
+.back-btn {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    background: #0ea5e9;
+
+    color: #082f49;
+
+    border-radius: 10px;
+
+    padding: 12px 19px;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.back-btn:hover {
+    background: var(--accent-hover);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    margin-top: 70px;
+
+    padding: 22px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--border);
+
+    background: #0f172a;
+
+    color: #64748b;
+
+    font-size: 0.85rem;
+}
+
+footer span {
+    color: var(--accent);
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 650px) {
+
+    .main-container {
+        padding-top: 55px;
     }
 
     h1 {
-      font-size: 3rem;
-      color: #38bdf8;
-      margin-bottom: 30px;
+        font-size: 2.8rem;
     }
 
-    .tools-box {
-      background: #020617;
-      border: 1px solid #1f2937;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 25px;
-      text-align: left;
+    .subtitle {
+        font-size: 1rem;
     }
 
-    .tools-box ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+}
 
-    .tools-box li {
-      margin-bottom: 12px;
-    }
-
-    .tools-box a {
-      color: #38bdf8;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .tools-box a:hover {
-      text-decoration: underline;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 10px 20px;
-      background: #38bdf8;
-      color: #000;
-      font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-
-    .back-btn:hover {
-      background: #0ea5e9;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <h1>Nexora Lernen</h1>
+<nav class="top-right-links">
+    <a href="index.html">Startseite</a>
+</nav>
 
-  <div class="tools-box">
-    <ul>
+<main class="main-container">
 
-      <!-- =============================== -->
-      <!--   Mathe24                       -->
-      <!-- =============================== -->
-      <li>
-        <a href="https://mrdatenschutz.github.io/Nexora/Mathe24.html" target="_blank">
-          Mathe24 – Rechentraining
-        </a>
-      </li>
+    <h1>Nexora Lernen</h1>
 
-      <!-- =============================== -->
-      <!--   Vokabel24                     -->
-      <!-- =============================== -->
-      <li>
-        <a href="https://mrdatenschutz.github.io/Nexora/Vokabel24.html" target="_blank">
-          Vokabel24 – Karteikarten & Lernen
-        </a>
-      </li>
+    <p class="subtitle">
+        Lernen, üben und Wissen ausbauen mit den Nexora Lernwerkzeugen.
+    </p>
 
-    </ul>
-  </div>
+    <div class="learning-container">
 
-  <a href="index.html" class="back-btn">Zur Startseite</a>
+        <div class="learning-item">
+            <a href="https://mrdatenschutz.github.io/Nexora/Mathe24.html"
+               target="_blank"
+               rel="noopener noreferrer">
+                Mathe24 – Rechentraining
+            </a>
+
+            <div class="learning-desc">
+                Trainiere Kopfrechnen, Grundrechenarten und mathematische Fähigkeiten.
+            </div>
+        </div>
+
+        <div class="learning-item">
+            <a href="https://mrdatenschutz.github.io/Nexora/Vokabel24.html"
+               target="_blank"
+               rel="noopener noreferrer">
+                Vokabel24 – Karteikarten & Lernen
+            </a>
+
+            <div class="learning-desc">
+                Vokabeln lernen, wiederholen und mit digitalen Karteikarten üben.
+            </div>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-btn">
+        Zur Startseite
+    </a>
+
+</main>
+
+<footer>
+    <p>
+        © <span>Nexora</span> – Lernen
+    </p>
+</footer>
 
 </body>
 </html>
