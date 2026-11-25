@@ -1,86 +1,392 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Über Nexora</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      text-align: center;
-      padding: 40px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Über Nexora</title>
+
+<style>
+
+/* =================================
+   GRUNDEINSTELLUNGEN
+================================= */
+
+:root {
+    --background: #0f172a;
+    --surface: #111e35;
+    --surface-light: #1e293b;
+    --accent: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: rgba(148, 163, 184, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background-color: #0f172a;
+    color-scheme: dark;
+}
+
+body {
+
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: 'Segoe UI', sans-serif;
+
+    background-color: #0f172a;
+
+    background-image:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(14, 165, 233, 0.09),
+            transparent 55%
+        );
+
+    background-repeat: no-repeat;
+    background-size: 100% 700px;
+
+    color: var(--text);
+}
+
+/* =================================
+   NAVIGATION
+================================= */
+
+.top-right-links {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(15, 23, 42, 0.95);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter: blur(12px);
+}
+
+.top-right-links a {
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 0.86rem;
+
+    font-weight: 600;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    transition: 0.2s ease;
+}
+
+.top-right-links a:hover {
+
+    color: var(--accent);
+
+    background: rgba(56, 189, 248, 0.07);
+
+    transform: translateY(-1px);
+}
+
+/* =================================
+   HAUPTBEREICH
+================================= */
+
+.main-container {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 65px 20px 60px;
+
+    text-align: center;
+}
+
+/* =================================
+   TITEL
+================================= */
+
+h1 {
+
+    font-size: clamp(2.8rem, 7vw, 4.2rem);
+
+    margin: 0;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    color: var(--accent);
+
+    text-shadow:
+        0 0 20px rgba(56, 189, 248, 0.12);
+}
+
+.subtitle {
+
+    font-size: 1.1rem;
+
+    color: var(--muted);
+
+    margin-top: 12px;
+
+    margin-bottom: 40px;
+}
+
+/* =================================
+   INFOKARTEN
+================================= */
+
+.about-container {
+
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    text-align: left;
+}
+
+.info-card {
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background: rgba(17, 30, 53, 0.95);
+
+    margin-bottom: 14px;
+
+    border: 1px solid var(--border);
+
+    transition: 0.2s ease;
+}
+
+.info-card:hover {
+
+    transform: translateY(-2px);
+
+    border-color: rgba(56, 189, 248, 0.35);
+
+    background: #17263f;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.info-title {
+
+    color: var(--accent);
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.info-text {
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+.info-card a {
+
+    color: var(--accent);
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.info-card a:hover {
+
+    color: var(--accent-hover);
+}
+
+/* =================================
+   BUTTON
+================================= */
+
+.back-btn {
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    background: #0ea5e9;
+
+    color: #082f49;
+
+    border-radius: 10px;
+
+    padding: 12px 19px;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.back-btn:hover {
+
+    background: var(--accent-hover);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+
+    margin-top: 70px;
+
+    padding: 22px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--border);
+
+    background: #0f172a;
+
+    color: #64748b;
+
+    font-size: 0.85rem;
+}
+
+footer span {
+
+    color: var(--accent);
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 650px) {
+
+    .main-container {
+
+        padding-top: 55px;
     }
+
     h1 {
-      font-size: 2.5rem;
-      color: #38bdf8;
-      margin-bottom: 10px;
+
+        font-size: 2.8rem;
     }
-    p {
-      color: #9ca3af;
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
+
+    .subtitle {
+
+        font-size: 1rem;
     }
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .box {
-      background: #020617;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #1f2937;
-      max-width: 600px;
-      margin: 30px auto;
-      text-align: left;
-    }
-  </style>
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <h1>Über Nexora</h1>
-  <p>Nexora, dein kompetenter Partner bei deiner Suche !</p>
+<nav class="top-right-links">
+    <a href="index.html">Startseite</a>
+</nav>
 
-  <div class="box">
+<main class="main-container">
 
-    <p><strong>GitHub-Profil:</strong><br>
-    <a href="https://github.com/MrDatenschutz" target="_blank">github.com/MrDatenschutz</a></p>
+    <h1>Über Nexora</h1>
 
-    <p><strong>Zurück zur Startseite:</strong><br>
-    <a href="index.html">Zurück zur Startseite</a></p>
-
-    <hr style="border: 1px solid #1f2937; margin: 25px 0;">
-
-    <!-- =============================== -->
-    <!--   NEUER INFORMATIONEN-BEREICH   -->
-    <!-- =============================== -->
-
-    <p><strong>Informationen:</strong></p>
-
-    <p>
-      <!-- HIER DEIN INFORMATIONSTEXT EINFÜGEN -->
-       
-      Wir sind eine anonyme Gruppe von Programmierern, 
-      die es sich zur Aufgabe gemacht haben Software kostenlos, 
-      sicher und lizensfrei anzubieten. 
-      Daher finden Sie auf unserer Homepage https://mrdatenschutz.github.io/Nexora/,
-      viele nützliche Tools für den Alltag. 
-      Sie können alles kostenfrei herunterladen und nutzen !
-      <!-- ENDE DEINES INFORMATIONSTEXTES -->
+    <p class="subtitle">
+        Nexora – dein kompetenter Partner bei deiner Suche.
     </p>
 
-    <!-- =============================== -->
+    <div class="about-container">
 
-  </div>
+        <div class="info-card">
+
+            <div class="info-title">
+                GitHub-Profil
+            </div>
+
+            <div class="info-text">
+                <a href="https://github.com/MrDatenschutz"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    github.com/MrDatenschutz
+                </a>
+            </div>
+
+        </div>
+
+        <div class="info-card">
+
+            <div class="info-title">
+                Informationen
+            </div>
+
+            <div class="info-text">
+
+                Wir sind eine anonyme Gruppe von Programmierern,
+                die es sich zur Aufgabe gemacht hat, Software
+                kostenlos, sicher und lizenzfrei anzubieten.
+
+                <br><br>
+
+                Daher findest du auf unserer Homepage zahlreiche
+                nützliche Tools, Lernprogramme, Spiele,
+                Programmierexperimente und weitere Projekte
+                für den Alltag.
+
+                <br><br>
+
+                Alle angebotenen Inhalte können kostenlos genutzt
+                und heruntergeladen werden.
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-btn">
+        Zur Startseite
+    </a>
+
+</main>
+
+<footer>
+    <p>
+        © <span>Nexora</span> – Über das Projekt
+    </p>
+</footer>
 
 </body>
 </html>
