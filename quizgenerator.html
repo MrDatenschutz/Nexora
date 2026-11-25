@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nexora Quiz Generator</title>
+
+<style>
+
+:root{
+    --accent:#38bdf8;
+    --accent-hover:#7dd3fc;
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+    --border:rgba(148,163,184,.15);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+
+    min-height:100vh;
+
+    font-family:'Segoe UI',sans-serif;
+
+    background:#0f172a;
+
+    background-image:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(14,165,233,.09),
+            transparent 55%
+        );
+
+    color:var(--text);
+
+}
+
+.main{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:40px 20px;
+
+}
+
+h1{
+
+    text-align:center;
+
+    color:var(--accent);
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    margin-bottom:30px;
+
+}
+
+.layout{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+.card{
+
+    background:#111e35;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    padding:20px;
+
+}
+
+h2{
+
+    margin-top:0;
+
+    color:var(--accent);
+
+}
+
+input[type=text],
+textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#17263f;
+
+    color:white;
+
+}
+
+textarea{
+
+    min-height:100px;
+
+    resize:vertical;
+
+}
+
+.answer{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:10px;
+
+}
+
+.answer input[type=text]{
+
+    margin-bottom:0;
+
+}
+
+.btn{
+
+    background:#0ea5e9;
+
+    color:#082f49;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:12px 18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    margin-right:10px;
+
+}
+
+.btn:hover{
+
+    background:var(--accent-hover);
+
+}
+
+.question-card{
+
+    background:#17263f;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    overflow-wrap:anywhere;
+
+    word-break:break-word;
+	
+	white-space:normal;
+
+}
+
+.question-card h3{
+
+    margin-top:0;
+
+    overflow-wrap:anywhere;
+
+    word-break:break-word;
+
+}
+
+.edit-btn{
+
+    background:#38bdf8;
+
+}
+
+.delete-btn{
+
+    background:#ef4444;
+
+    color:white;
+
+}
+
+.back-btn{
+
+ display:inline-block;
+
+ margin-top:25px;
+
+ background:#0ea5e9;
+
+ color:#082f49;
+
+ text-decoration:none;
+
+ padding:12px 20px;
+
+ border-radius:10px;
+
+ font-weight:700;
+
+ border:none;
+
+ outline:none;
+
+ cursor:pointer;
+
+ transition:.2s ease;
+
+}
+
+.bottom-actions{
+
+ display:flex;
+
+ justify-content:center;
+
+ flex-wrap:wrap;
+
+ gap:10px;
+
+ margin-top:25px;
+
+}
+
+@media(max-width:900px){
+
+    .layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="main">
+
+<h1>Nexora Quiz Generator</h1>
+
+<p class="subtitle">
+Erstelle neue Quizfragen im Nexora-Design.
+</p>
+
+<div class="layout">
+
+<div class="card">
+
+<h2>Neue Frage</h2>
+
+<input
+type="text"
+id="question"
+placeholder="Frage eingeben">
+
+<div id="answers">
+
+<div class="answer">
+<input type="radio" name="correct" checked>
+<input type="text" placeholder="Antwort 1">
+</div>
+
+<div class="answer">
+<input type="radio" name="correct">
+<input type="text" placeholder="Antwort 2">
+</div>
+
+<div class="answer">
+<input type="radio" name="correct">
+<input type="text" placeholder="Antwort 3">
+</div>
+
+</div>
+
+<button class="btn"
+onclick="addAnswer()">
+
++ Antwort hinzufügen
+
+</button>
+
+<br><br>
+
+<textarea
+id="explanation"
+placeholder="Erklärung (optional)">
+</textarea>
+
+<br>
+
+<button
+class="btn"
+onclick="saveQuestion()">
+
+Frage speichern
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Gespeicherte Fragen</h2>
+
+<div id="questionList">
+
+Noch keine Fragen gespeichert.
+
+</div>
+
+</div>
+
+<div class="bottom-actions">
+
+    <a
+    href="index.html"
+    class="back-btn">
+
+        Zur Startseite
+
+    </a>
+
+    <button
+    class="back-btn"
+    onclick="saveProject()">
+
+        Projekt speichern
+
+    </button>
+
+    <button
+    class="back-btn"
+    onclick="exportQuiz()">
+
+        Quiz exportieren
+
+    </button>
+
+    <button
+    class="back-btn"
+    onclick="document.getElementById('loadProject').click()">
+
+        Projekt laden
+
+    </button>
+
+    <input
+    type="file"
+    id="loadProject"
+    accept=".json"
+    style="display:none;">
+
+</div>
+
+
+
+<script>
+
+let questions=[];
+
+let editIndex=-1;
+
+function addAnswer(){
+
+const div=document.createElement("div");
+
+div.className="answer";
+
+div.innerHTML=`
+
+<input
+type="radio"
+name="correct">
+
+<input
+type="text"
+placeholder="Weitere Antwort">
+
+`;
+
+document
+.getElementById("answers")
+.appendChild(div);
+
+}
+
+function saveQuestion(){
+
+const question=
+
+document
+.getElementById("question")
+.value.trim();
+
+if(!question){
+
+alert(
+"Bitte eine Frage eingeben."
+);
+
+return;
+
+}
+
+const answerDivs=
+
+document
+.querySelectorAll(".answer");
+
+let answers=[];
+
+let correct=0;
+
+let validAnswers=0;
+
+answerDivs.forEach((row,index)=>{
+
+const radio=
+
+row.querySelector(
+'input[type=radio]'
+);
+
+const text=
+
+row.querySelector(
+'input[type=text]'
+);
+
+const value=text.value.trim();
+
+answers.push(value);
+
+if(value!==""){
+
+    validAnswers++;
+
+}
+
+if(radio.checked){
+
+correct=index;
+
+}
+
+});
+
+if(validAnswers < 3){
+
+    alert(
+        "Mindestens 3 Antworten müssen ausgefüllt sein."
+    );
+
+    return;
+
+}
+
+const unique =
+
+new Set(
+
+    answers.filter(
+        a => a !== ""
+    )
+
+);
+
+if(
+    unique.size !==
+    validAnswers
+){
+
+    alert(
+        "Antworten dürfen nicht identisch sein."
+    );
+
+    return;
+
+}
+
+if(answers[correct] === ""){
+
+    alert(
+        "Die richtige Antwort darf nicht leer sein."
+    );
+
+    return;
+
+}
+
+const explanation=
+
+document
+.getElementById("explanation")
+.value.trim();
+
+const obj={
+
+question,
+options:answers,
+correct,
+explanation
+
+};
+
+if(editIndex===-1){
+
+questions.push(obj);
+
+}else{
+
+questions[editIndex]=obj;
+
+editIndex=-1;
+
+}
+
+renderQuestions();
+
+clearForm();
+
+}
+
+function clearForm(){
+
+document
+.getElementById("question")
+.value="";
+
+document
+.getElementById("explanation")
+.value="";
+
+document
+.getElementById("answers")
+.innerHTML=`
+
+<div class="answer">
+<input type="radio" name="correct" checked>
+<input type="text" placeholder="Antwort 1">
+</div>
+
+<div class="answer">
+<input type="radio" name="correct">
+<input type="text" placeholder="Antwort 2">
+</div>
+
+<div class="answer">
+<input type="radio" name="correct">
+<input type="text" placeholder="Antwort 3">
+</div>
+
+`;
+
+}
+
+function renderQuestions(){
+
+const list=
+
+document
+.getElementById("questionList");
+
+if(questions.length===0){
+
+list.innerHTML=
+
+"Noch keine Fragen gespeichert.";
+
+return;
+
+}
+
+list.innerHTML="";
+
+questions.forEach((q,index)=>{
+
+const card=
+document.createElement("div");
+
+card.className="question-card";
+
+card.innerHTML=`
+
+<h3>${q.question}</h3>
+
+<p>
+
+<b>Richtige Antwort:</b>
+
+${q.options[q.correct]}
+
+</p>
+
+<button
+class="btn edit-btn"
+onclick="editQuestion(${index})">
+
+Bearbeiten
+
+</button>
+
+<button
+class="btn delete-btn"
+onclick="deleteQuestion(${index})">
+
+Löschen
+
+</button>
+
+`;
+
+list.appendChild(card);
+
+});
+
+}
+
+function editQuestion(index){
+
+const q=questions[index];
+
+editIndex=index;
+
+document
+.getElementById("question")
+.value=q.question;
+
+document
+.getElementById("explanation")
+.value=q.explanation;
+
+const answers=
+document
+.getElementById("answers");
+
+answers.innerHTML="";
+
+q.options.forEach((answer,i)=>{
+
+const div=
+document.createElement("div");
+
+div.className="answer";
+
+div.innerHTML=`
+
+<input
+type="radio"
+name="correct"
+${i===q.correct ?
+"checked" : ""}>
+
+<input
+type="text"
+value="${answer}">
+
+`;
+
+answers.appendChild(div);
+
+});
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+function deleteQuestion(index){
+
+    if(
+        !confirm(
+            "Frage wirklich löschen?"
+        )
+    ){
+
+        return;
+
+    }
+
+    questions.splice(index,1);
+
+    renderQuestions();
+
+}
+
+function deleteQuestion(index){
+
+ if(
+
+ !confirm(
+
+ "Frage wirklich löschen?"
+
+ )
+
+ ){
+
+ return;
+
+ }
+
+ questions.splice(index,1);
+
+ renderQuestions();
+
+}
+
+function saveProject(){
+
+    const data = {
+
+        questions: questions
+
+    };
+
+    const blob = new Blob(
+
+        [
+            JSON.stringify(
+                data,
+                null,
+                2
+            )
+        ],
+
+        {
+            type:"application/json"
+        }
+
+    );
+
+    const a =
+    document.createElement("a");
+
+    a.href =
+    URL.createObjectURL(blob);
+
+    a.download =
+    "nexora-quiz-projekt.json";
+
+    a.click();
+
+}
+
+document
+
+.getElementById(
+    "loadProject"
+)
+
+.addEventListener(
+
+"change",
+
+event=>{
+
+    const file =
+    event.target.files[0];
+
+    if(!file){
+
+        return;
+
+    }
+
+    const reader =
+    new FileReader();
+
+    reader.onload = e => {
+
+        const data =
+
+        JSON.parse(
+            e.target.result
+        );
+
+        questions =
+        data.questions || [];
+
+        renderQuestions();
+
+    };
+
+    reader.readAsText(
+        file
+    );
+
+});
+
+function exportQuiz(){
+
+    if(questions.length===0){
+
+        alert(
+            "Es sind keine Fragen vorhanden."
+        );
+
+        return;
+
+    }
+
+    const quizData =
+    JSON.stringify(
+        questions,
+        null,
+        2
+    );
+
+    fetch(
+        "quiz-template.html"
+    )
+
+    .then(response =>
+        response.text()
+    )
+
+    .then(template => {
+
+        const html =
+
+        template.replace(
+
+            "__QUIZ_DATA__",
+
+            quizData
+
+        );
+
+        const blob =
+        new Blob(
+
+            [html],
+
+            {
+                type:"text/html"
+            }
+
+        );
+
+        const a =
+        document.createElement(
+            "a"
+        );
+
+        a.href =
+        URL.createObjectURL(
+            blob
+        );
+
+        a.download =
+        "quiz.html";
+
+        a.click();
+
+    })
+
+    .catch(error => {
+
+        alert(
+            "quiz-template.html konnte nicht geladen werden."
+        );
+
+        console.error(
+            error
+        );
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nexora Monthly Quiz</title>
+
+<style>
+
+:root{
+    --accent:#38bdf8;
+    --accent-hover:#7dd3fc;
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+    --border:rgba(148,163,184,.15);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+
+    min-height:100vh;
+
+    font-family:'Segoe UI',sans-serif;
+
+    background:#0f172a;
+
+    background-image:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(14,165,233,.09),
+            transparent 55%
+        );
+
+    color:var(--text);
+
+}
+
+.main{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:50px 20px;
+
+}
+
+h1{
+
+    text-align:center;
+
+    color:var(--accent);
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    margin-bottom:30px;
+
+}
+
+.progress-text{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+    color:var(--muted);
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:12px;
+
+    background:#1e293b;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:25px;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    width:0%;
+
+    background:var(--accent);
+
+    transition:.3s ease;
+
+}
+
+.card{
+
+ position:relative;
+
+ background:#111e35;
+
+ border:1px solid var(--border);
+
+ border-radius:14px;
+
+ padding:20px;
+
+}
+
+.question{
+
+    font-size:1.3rem;
+
+    margin-bottom:20px;
+
+}
+
+.option{
+
+    background:#17263f;
+
+    border:1px solid var(--border);
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.option:hover{
+
+    border-color:
+        rgba(56,189,248,.4);
+}
+
+.feedback{
+
+    display:none;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    border-radius:10px;
+
+}
+
+.correct{
+
+    background:
+        rgba(34,197,94,.15);
+
+    border:
+        1px solid
+        rgba(34,197,94,.45);
+
+    color:#22c55e;
+}
+
+.wrong{
+
+    background:
+        rgba(239,68,68,.15);
+
+    border:
+        1px solid
+        rgba(239,68,68,.45);
+
+    color:#ef4444;
+}
+
+#explanation{
+
+    margin-top:15px;
+
+    color:var(--muted);
+}
+
+.btn{
+
+ display:none;
+
+ position:absolute;
+
+ top:20px;
+
+ right:20px;
+
+ background:#0ea5e9;
+
+ color:#082f49;
+
+ border:none;
+
+ border-radius:10px;
+
+ padding:12px 20px;
+
+ font-weight:700;
+
+ cursor:pointer;
+
+ z-index:2;
+
+}
+
+.btn:hover{
+
+ background:var(--accent-hover);
+
+}
+
+.btn:hover{
+
+    background:var(--accent-hover);
+
+}
+
+.score-box{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.score-number{
+
+    font-size:3rem;
+
+    color:var(--accent);
+
+    font-weight:bold;
+
+}
+
+.score-percent{
+
+    font-size:1.2rem;
+
+    color:var(--muted);
+
+}
+
+.result-card{
+
+    padding:16px;
+
+    border-radius:12px;
+
+    margin-bottom:15px;
+}
+
+.result-correct{
+
+    background:
+        rgba(34,197,94,.15);
+
+    border:
+        1px solid
+        rgba(34,197,94,.45);
+}
+
+.result-wrong{
+
+    background:
+        rgba(239,68,68,.15);
+
+    border:
+        1px solid
+        rgba(239,68,68,.45);
+}
+
+.back-btn{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    background:#0ea5e9;
+
+    color:#082f49;
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    font-weight:700;
+}
+
+footer{
+
+    margin-top:60px;
+
+    text-align:center;
+
+    color:#64748b;
+}
+
+</style>
+</head>
+<body>
+
+<div class="main">
+
+<h1>Nexora Monthly Quiz</h1>
+
+<p class="subtitle">
+Teste dein Wissen.
+</p>
+
+<div id="quizArea">
+
+<div class="progress-text" id="progressText"></div>
+
+<div class="progress">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+
+<div class="card">
+
+<div id="question"
+     class="question"></div>
+
+<div id="options"></div>
+
+<div id="feedback"
+     class="feedback"></div>
+
+<div id="explanation"></div>
+
+<button id="nextBtn"
+
+ class="btn">
+
+Weiter
+
+</button>
+
+</div>
+
+</div>
+
+<div id="results"
+     style="display:none;">
+</div>
+
+<footer>
+© Nexora – Monthly Quiz
+</footer>
+
+</div>
+
+<script>
+
+const quiz = __QUIZ_DATA__;
+
+let current=0;
+
+let score=0;
+
+let answers=[];
+
+const question=
+document.getElementById("question");
+
+const options=
+document.getElementById("options");
+
+const feedback=
+document.getElementById("feedback");
+
+const explanation=
+document.getElementById("explanation");
+
+const nextBtn=
+document.getElementById("nextBtn");
+
+function loadQuestion(){
+
+const q=quiz[current];
+
+document.getElementById(
+"progressText"
+).textContent=
+
+`Frage ${current+1}
+ von ${quiz.length}`;
+
+document.getElementById(
+"progressFill"
+).style.width=
+
+`${((current)/quiz.length)*100}%`;
+
+question.textContent=
+q.question;
+
+options.innerHTML="";
+
+feedback.style.display=
+"none";
+
+feedback.className=
+"feedback";
+
+explanation.innerHTML="";
+
+nextBtn.style.display=
+"none";
+
+q.options.forEach(
+(opt,index)=>{
+
+const div=
+document.createElement("div");
+
+div.className=
+"option";
+
+div.textContent=
+opt;
+
+div.onclick=()=>selectAnswer(index);
+
+options.appendChild(div);
+
+});
+
+}
+
+function selectAnswer(index){
+
+const q=quiz[current];
+
+answers.push(index);
+
+if(index===q.correct){
+
+score++;
+
+feedback.textContent=
+"✅ Richtig";
+
+feedback.classList.add(
+"correct"
+);
+
+}else{
+
+feedback.textContent=
+"❌ Falsch\nRichtige Antwort: "
++
+q.options[q.correct];
+
+feedback.classList.add(
+"wrong"
+);
+
+}
+
+feedback.style.display=
+"block";
+
+if(q.explanation){
+
+explanation.innerHTML=
+
+"<br><b>Erklärung:</b><br>"
++
+q.explanation;
+
+}
+
+nextBtn.style.display=
+"inline-block";
+
+document
+.querySelectorAll(
+".option"
+)
+.forEach(
+e=>e.onclick=null
+);
+
+}
+
+nextBtn.onclick=()=>{
+
+current++;
+
+if(current<quiz.length){
+
+loadQuestion();
+
+}else{
+
+showResults();
+
+}
+
+};
+
+function showResults(){
+
+document
+.getElementById(
+"quizArea"
+).style.display="none";
+
+const results=
+document.getElementById(
+"results"
+);
+
+results.style.display=
+"block";
+
+const percent=
+
+(
+score/
+quiz.length*
+100
+).toFixed(1);
+
+results.innerHTML=`
+
+<div class="score-box">
+
+<div class="score-number">
+
+${score}/${quiz.length}
+
+</div>
+
+<div class="score-percent">
+
+${percent}% richtig
+
+</div>
+
+</div>
+
+`;
+
+quiz.forEach((q,i)=>{
+
+const correct=
+
+answers[i]===q.correct;
+
+const div=
+document.createElement(
+"div"
+);
+
+div.className=
+
+"result-card " +
+
+(correct
+?
+
+"result-correct"
+:
+
+"result-wrong");
+
+div.innerHTML=`
+
+<b>
+
+${correct
+?
+"✅ Richtig"
+:
+"❌ Falsch"}
+
+</b>
+
+<br><br>
+
+${q.question}
+
+<br><br>
+
+<b>Deine Antwort:</b>
+
+<br>
+
+${q.options[
+answers[i]
+]}
+
+${
+correct
+?
+""
+:
+`<br><br>
+
+<b>Richtige Antwort:</b>
+
+<br>
+
+${q.options[
+q.correct
+]}`
+}
+
+${
+q.explanation
+?
+
+`<br><br>
+
+<b>Erklärung:</b>
+
+<br>
+
+${q.explanation}`
+
+:
+
+""
+}
+
+`;
+
+results.appendChild(div);
+
+});
+
+results.innerHTML+=`
+
+<div style="text-align:center;">
+
+<a
+href="index.html"
+class="back-btn">
+
+Zur Startseite
+
+</a>
+
+</div>
+
+`;
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
