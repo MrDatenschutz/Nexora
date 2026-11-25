@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nexora OS</title>
+
+<style>
+
+/* =================================
+   GRUNDEINSTELLUNGEN
+================================= */
+
+:root {
+    --background: #0f172a;
+    --surface: #111e35;
+    --surface-light: #1e293b;
+    --accent: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: rgba(148, 163, 184, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background-color: #0f172a;
+    color-scheme: dark;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: 'Segoe UI', sans-serif;
+
+    background-color: #0f172a;
+
+    background-image:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(14,165,233,0.09),
+            transparent 55%
+        );
+
+    background-repeat: no-repeat;
+    background-size: 100% 700px;
+
+    color: var(--text);
+}
+
+/* =================================
+   NAVIGATION
+================================= */
+
+.top-right-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    padding: 15px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(15,23,42,0.95);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter: blur(12px);
+}
+
+.top-right-links a {
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 0.86rem;
+
+    font-weight: 600;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    transition: 0.2s ease;
+}
+
+.top-right-links a:hover {
+
+    color: var(--accent);
+
+    background: rgba(56,189,248,0.07);
+
+    transform: translateY(-1px);
+}
+
+/* =================================
+   HAUPTBEREICH
+================================= */
+
+.main-container {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 80px 20px 60px;
+
+    text-align: center;
+}
+
+h1 {
+
+    font-size: clamp(2.8rem, 7vw, 4.2rem);
+
+    margin: 0;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    color: var(--accent);
+
+    text-shadow:
+        0 0 20px rgba(56,189,248,0.12);
+}
+
+.subtitle {
+
+    color: var(--muted);
+
+    font-size: 1.1rem;
+
+    margin-top: 15px;
+
+    margin-bottom: 50px;
+}
+
+/* =================================
+   OS BUTTONS
+================================= */
+
+.os-container {
+
+    max-width: 500px;
+
+    margin: 0 auto;
+}
+
+.os-button {
+
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 15px;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: rgba(17,30,53,0.95);
+
+    border: 1px solid var(--border);
+
+    text-decoration: none;
+
+    color: var(--accent);
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.os-button:hover {
+
+    transform: translateY(-2px);
+
+    background: #17263f;
+
+    border-color: rgba(56,189,248,0.4);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+
+    margin-top: 70px;
+
+    padding: 22px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--border);
+
+    background: #0f172a;
+
+    color: #64748b;
+
+    font-size: 0.85rem;
+}
+
+footer span {
+
+    color: var(--accent);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="top-right-links">
+
+    <a href="index.html">
+        Startseite
+    </a>
+
+</nav>
+
+<main class="main-container">
+
+    <h1>Nexora OS</h1>
+
+    <p class="subtitle">
+        Wähle dein Betriebssystem.
+    </p>
+
+    <div class="os-container">
+
+        <a
+            class="os-button"
+            href="https://mrdatenschutz.github.io/Nexora/ank%C3%BCndigung.html">
+            MacOS
+        </a>
+
+        <a
+            class="os-button"
+            href="https://mrdatenschutz.github.io/Nexora/ank%C3%BCndigung.html">
+            Windows
+        </a>
+
+        <a
+            class="os-button"
+            href="https://mrdatenschutz.github.io/Nexora/ank%C3%BCndigung.html">
+            Linux
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        © <span>Nexora</span> – Operating Systems
+    </p>
+
+</footer>
+
+</body>
+</html>
