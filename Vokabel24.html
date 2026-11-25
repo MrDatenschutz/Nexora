@@ -78,9 +78,7 @@ let wrongList = [];      // falsch beantwortete Karten
 let learnIndex = 0;
 let solutionShown = false;
 
-/* -------------------------
-   BEREICH 1 – KARTEIKARTEN ERSTELLEN
--------------------------- */
+/* Karteikarten Erstellen */
 
 function openCreate() {
   document.getElementById("area").innerHTML = `
@@ -143,9 +141,7 @@ function exportCards() {
   a.click();
 }
 
-/* -------------------------
-   BEREICH 2 – LERNMODUS
--------------------------- */
+/* Lernmodus */
 
 function openLearn() {
   if (cards.length === 0) {
@@ -156,7 +152,7 @@ function openLearn() {
     return;
   }
 
-  learnList = [...cards];   // komplette Liste
+  learnList = [...cards];   // ganze Liste
   wrongList = [];           // leeren
   learnIndex = 0;
 
@@ -231,9 +227,7 @@ function repeatWrong() {
   showLearnCard();
 }
 
-/* -------------------------
-   BEREICH 3 – IMPORTIEREN
--------------------------- */
+/* Importieren */
 
 function openImport() {
   document.getElementById("area").innerHTML = `
