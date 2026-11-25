@@ -11,9 +11,7 @@
 
 <style>
 
-/* =================================
-   GRUNDEINSTELLUNGEN
-================================= */
+/* Grund Settings */
 
 :root {
     --background: #0f172a;
@@ -59,9 +57,7 @@ body {
 }
 
 
-/* =================================
-   NAVIGATION
-================================= */
+/* Navigation */
 
 .top-right-links {
 
@@ -122,9 +118,7 @@ body {
 }
 
 
-/* =================================
-   HAUPTBEREICH
-================================= */
+/* Main Bereich */
 
 .main-container {
 
@@ -139,9 +133,7 @@ body {
 }
 
 
-/* =================================
-   LOGO UND TITEL
-================================= */
+/* Logo & Titel */
 
 .header {
 
@@ -190,9 +182,7 @@ body {
 }
 
 
-/* =================================
-   BESCHREIBUNG
-================================= */
+/* Beschreibung */
 
 .subtitle {
 
@@ -217,9 +207,7 @@ body {
 }
 
 
-/* =================================
-   SUCHBEREICH
-================================= */
+/* Suchbereich */
 
 #searchBox {
 
@@ -297,9 +285,7 @@ input[type="text"]::placeholder {
 }
 
 
-/* =================================
-   SUCHBUTTON
-================================= */
+/* Such Button */
 
 .search-button {
 
@@ -341,9 +327,7 @@ input[type="text"]::placeholder {
 }
 
 
-/* =================================
-   SUCHHINWEIS
-================================= */
+/* Such Hinweis */
 
 .search-hint {
 
@@ -356,9 +340,7 @@ input[type="text"]::placeholder {
 }
 
 
-/* =================================
-   SUCHERGEBNISSE
-================================= */
+/* Such Output */
 
 #results {
 
@@ -442,9 +424,7 @@ input[type="text"]::placeholder {
 }
 
 
-/* =================================
-   STATUSMELDUNGEN
-================================= */
+/* Statusmeldungen */
 
 .status-message {
 
@@ -463,9 +443,7 @@ input[type="text"]::placeholder {
 }
 
 
-/* =================================
-   FOOTER
-================================= */
+/* Footer */
 
 footer {
 
@@ -518,9 +496,7 @@ footer span {
 }
 
 
-/* =================================
-   ANIMATIONEN
-================================= */
+/* Animationen */
 
 @keyframes fadeIn {
 
@@ -543,9 +519,7 @@ footer span {
 }
 
 
-/* =================================
-   MOBILE DESIGN
-================================= */
+/* Mobile Design */
 
 @media (max-width: 650px) {
 
@@ -643,9 +617,7 @@ footer span {
 
 <body>
 
-<!-- =================================
-     NAVIGATION
-================================= -->
+<!--   Navigation   -->
 
 <nav class="top-right-links">
 
@@ -688,14 +660,12 @@ footer span {
 
 </nav>
 
-<!-- =================================
-     HAUPTBEREICH
-================================= -->
+<!--   Hauptbereich   -->
 
 <main class="main-container">
 
 
-<!-- LOGO -->
+<!-- Logo -->
 
 <div class="header">
 
@@ -717,9 +687,7 @@ footer span {
 
 
 
-<!-- =================================
-     SUCHFELD
-================================= -->
+<!--   Suchfeld   -->
 
 <div id="searchBox">
 
@@ -750,18 +718,14 @@ footer span {
 
 
 
-<!-- =================================
-     SUCHERGEBNISSE
-================================= -->
+<!-- Suchergebnisse   -->
 
 <div id="results" aria-live="polite"></div>
 
 
 </main>
 
-<!-- =================================
-     FOOTER
-================================= -->
+<!--   Footer   -->
 
 <footer>
 
@@ -780,9 +744,7 @@ footer span {
 
 </footer>
 
-<!-- =================================
-     JAVASCRIPT
-================================= -->
+<!--   Javascript   -->
 
 <script>
 
@@ -798,7 +760,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchForm = document.getElementById("searchForm");
 
 
-    /* SEITENDATEN LADEN */
+    /*   Seitendaten Laden   */
 
     fetch("pages.txt?nocache=" + Date.now())
 
@@ -871,7 +833,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    /* SUCHFUNKTION */
+    /*   Suchfunktion   */
 
     function search() {
 
@@ -906,7 +868,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-        /* KEINE TREFFER */
+        /*   Keine Treffer   */
 
         if (filtered.length === 0) {
 
@@ -925,7 +887,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-        /* ERGEBNISÜBERSCHRIFT */
+        /*   Ergebnisübersicht   */
 
         const heading = document.createElement("div");
 
@@ -938,7 +900,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-        /* ERGEBNISSE ANZEIGEN */
+        /*   Ergebnisse Anzeigen   */
 
         filtered.forEach(page => {
 
@@ -997,13 +959,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    /* LIVE-SUCHE */
+    /*   Live Suche   */
 
     input.addEventListener("input", search);
 
 
 
-    /* SUCHBUTTON */
+    /*   Suchbutton*/
 
     searchForm.addEventListener("submit", event => {
 
